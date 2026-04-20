@@ -58,3 +58,368 @@
     </section>
   </main>
 </body>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seção 2 - Dr. Calixto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #e9e9e9;
+      --gold: #a88547;
+      --gold-light: #d5b56a;
+      --text: #111111;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: "Kameron", serif;
+      background: var(--bg);
+    }
+
+    .sobre-section {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+      padding: 140px 20px 90px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* FAIXA CONTÍNUA */
+    .top-ribbon {
+      position: absolute;
+      top: 34px;
+      left: 50%;
+      transform: translateX(-50%) rotate(-3deg);
+      width: 115%;
+      background: var(--gold);
+      overflow: hidden;
+      z-index: 5;
+      padding: 14px 0;
+    }
+
+    .top-ribbon__track {
+      display: flex;
+      width: max-content;
+      animation: ribbonMove 20s linear infinite;
+    }
+
+    .top-ribbon__group {
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .top-ribbon__group span {
+      color: rgba(255,255,255,0.9);
+      font-size: 16px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      padding-right: 42px;
+    }
+
+    @keyframes ribbonMove {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* CONTEÚDO */
+    .sobre-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* BLOCO VISUAL */
+    .doctor-wrap {
+      position: relative;
+      width: min(100%, 560px);
+      height: 560px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .doctor-circle {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .doctor-circle::before {
+      content: "";
+      position: absolute;
+      width: 88%;
+      height: 88%;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 50% 35%, #f8efc7 0%, #efd986 42%, #d6b44e 72%, #bb9530 100%);
+      z-index: 1;
+    }
+
+    .doctor-circle::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid rgba(168, 133, 71, 0.9);
+      z-index: 0;
+    }
+
+    /* TEXTO CIRCULAR ANIMADO */
+    .circle-text {
+      position: absolute;
+      inset: -2px;
+      width: calc(100% + 4px);
+      height: calc(100% + 4px);
+      animation: spinText 18s linear infinite;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    @keyframes spinText {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .circle-text text {
+      font-family: "Kameron", serif;
+      font-size: 16px;
+      letter-spacing: 2px;
+      fill: rgba(168, 133, 71, 0.95);
+      text-transform: uppercase;
+    }
+
+    /* PERSONAGEM */
+    .doctor-image {
+      position: relative;
+      z-index: 2;
+      width: 72%;
+      max-width: 380px;
+      animation: doctorReveal 1.25s cubic-bezier(.2,.8,.2,1) both;
+      transform-origin: center bottom;
+    }
+
+    .doctor-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    @keyframes doctorReveal {
+      0% {
+        opacity: 0;
+        transform: translateY(90px) scale(0.96);
+        filter: blur(18px);
+      }
+      60% {
+        opacity: 1;
+        transform: translateY(-6px) scale(1);
+        filter: blur(2px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    /* TEXTO */
+    .sobre-title {
+      font-size: 50px;
+      line-height: 1.05;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .sobre-title span {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .sobre-text {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .sobre-text p {
+      font-size: 20px;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+
+    .cro-box {
+      margin: 26px auto 0;
+      width: min(100%, 450px);
+      border: 2px solid rgba(168, 133, 71, 0.8);
+      border-radius: 999px;
+      padding: 16px 20px;
+      font-size: 24px;
+      line-height: 1;
+      color: var(--text);
+      background: transparent;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      .sobre-section {
+        padding: 110px 18px 70px;
+      }
+
+      .top-ribbon {
+        top: 38px;
+        width: 135%;
+        padding: 10px 0;
+      }
+
+      .top-ribbon__group span {
+        font-size: 10px;
+        letter-spacing: 2.6px;
+        padding-right: 26px;
+      }
+
+      .doctor-wrap {
+        width: min(100%, 360px);
+        height: 360px;
+        margin-bottom: 26px;
+      }
+
+      .circle-text text {
+        font-size: 10px;
+        letter-spacing: 1.2px;
+      }
+
+      .doctor-image {
+        width: 72%;
+        max-width: 235px;
+      }
+
+      .sobre-title {
+        font-size: 33px;
+        margin-bottom: 14px;
+      }
+
+      .sobre-text {
+        max-width: 560px;
+      }
+
+      .sobre-text p {
+        font-size: 15px;
+        line-height: 1.12;
+        margin-bottom: 16px;
+      }
+
+      .cro-box {
+        width: min(100%, 320px);
+        padding: 14px 18px;
+        font-size: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="sobre-section" id="sobre">
+    <div class="top-ribbon">
+      <div class="top-ribbon__track">
+        <div class="top-ribbon__group">
+          <span>SORRISOS QUE TRANSFORMAM</span>
+          <span>ESTÉTICA COM PRECISÃO</span>
+          <span>RESULTADOS QUE DURAM</span>
+          <span>SORRISOS QUE TRANSFORMAM</span>
+          <span>ESTÉTICA COM PRECISÃO</span>
+          <span>RESULTADOS QUE DURAM</span>
+        </div>
+        <div class="top-ribbon__group">
+          <span>SORRISOS QUE TRANSFORMAM</span>
+          <span>ESTÉTICA COM PRECISÃO</span>
+          <span>RESULTADOS QUE DURAM</span>
+          <span>SORRISOS QUE TRANSFORMAM</span>
+          <span>ESTÉTICA COM PRECISÃO</span>
+          <span>RESULTADOS QUE DURAM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="sobre-content">
+
+        <div class="doctor-wrap">
+          <div class="doctor-circle"></div>
+
+          <svg class="circle-text" viewBox="0 0 600 600" aria-hidden="true">
+            <defs>
+              <path
+                id="circlePath"
+                d="M 300,300
+                   m -248,0
+                   a 248,248 0 1,1 496,0
+                   a 248,248 0 1,1 -496,0" />
+            </defs>
+            <text>
+              <textPath href="#circlePath" startOffset="0%">
+                EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO •
+              </textPath>
+            </text>
+          </svg>
+
+          <div class="doctor-image">
+            <img src="IMAGEM.png" alt="Dr. Eduardo Calixto" />
+          </div>
+        </div>
+
+        <h2 class="sobre-title">
+          Sobre o <span>Dr. Calixto</span>
+        </h2>
+
+        <div class="sobre-text">
+          <p>
+            Dr. Eduardo Calixto é especialista em Implantodontia e Periodontia, com foco em estética dental.
+            Seu trabalho une rigor técnico e harmonia facial para devolver proporção, equilíbrio e expressão ao sorriso.
+          </p>
+
+          <p>
+            Cada caso é único. O planejamento individualizado orienta decisões precisas — é isso que transforma
+            um bom resultado em extraordinário.
+          </p>
+        </div>
+
+        <div class="cro-box">CRO 23638</div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

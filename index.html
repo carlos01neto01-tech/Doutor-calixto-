@@ -1,718 +1,307 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doutor Calixto</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Kameron", serif;
-      background: #dcdcdc;
-      color: #111;
-      overflow-x: hidden;
-    }
-
-    .container {
-      width: min(100%, 1400px);
-      margin: 0 auto;
-      padding: 0 34px;
-    }
-
-    main {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 100vh;
-      padding: 92px 0 120px;
-      background: #dcdcdc url("assets/bg-hero-desktop.webp") center top / cover no-repeat;
-    }
-
-    .hero__overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(235, 235, 235, 0.56);
-    }
-
-    .hero__content,
-    .stats {
-      position: relative;
-      z-index: 2;
-    }
-
-    .hero__content {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 18px;
-      align-items: start;
-      padding-top: 24px;
-    }
-
-    .hero__left {
-      max-width: 610px;
-      padding-top: 42px;
-    }
-
-    .hero__title {
-      font-size: 74px;
-      line-height: 0.94;
-      font-weight: 500;
-      letter-spacing: -1px;
-      opacity: 0;
-      transform: translateX(-34px);
-      filter: blur(10px);
-      animation: revealLeft 1s ease forwards;
-    }
-
-    .hero__title span,
-    .sobre-title span {
-      color: #ab8848;
-      font-weight: 700;
-    }
-
-    .hero__text {
-      margin-top: 18px;
-      font-size: 28px;
-      line-height: 0.98;
-      max-width: 600px;
-      opacity: 0;
-      transform: translateX(-34px);
-      filter: blur(10px);
-      animation: revealLeft 1s ease forwards;
-      animation-delay: 0.18s;
-    }
-
-    .hero__actions {
-      display: flex;
-      flex-direction: column;
-      gap: 11px;
-      margin-top: 24px;
-      max-width: 500px;
-      opacity: 0;
-      transform: translateY(28px);
-      filter: blur(10px);
-      animation: fadeUp 1s ease forwards;
-      animation-delay: 0.32s;
-    }
-
-    .btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 74px;
-      border-radius: 18px;
-      font-size: 23px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: 0.25s ease;
-      text-align: center;
-      padding: 0 18px;
-    }
-
-    .btn--gold {
-      background: #b49357;
-      color: #fff;
-      border: 2px solid #b49357;
-    }
-
-    .btn--outline {
-      background: transparent;
-      color: #111;
-      border: 2px solid #b49357;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero__right {
-      position: relative;
-      min-height: 600px;
-    }
-
-    .case-card {
-      position: absolute;
-      overflow: hidden;
-      border-radius: 34px;
-      border: 3px solid rgba(255, 255, 255, 0.70);
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
-      opacity: 0;
-      transform: translateX(34px);
-      filter: blur(10px);
-      animation: revealRight 1s ease forwards;
-    }
-
-    .case-card img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .case-card--primary {
-      top: 26px;
-      left: 24px;
-      width: 360px;
-      height: 540px;
-      animation-delay: 0.24s;
-    }
-
-    .case-card--secondary {
-      top: 26px;
-      left: 412px;
-      width: 360px;
-      height: 540px;
-      animation-delay: 0.4s;
-    }
-
-    /* CARDS NA MESMA FAIXA VISUAL DAS FOTOS E MAIS PRA BAIXO */
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: -120px;
-      padding-top: 0;
-    }
-
-    .stat-box {
-      background: rgba(234, 234, 234, 0.94);
-      border: 2px solid #b49357;
-      border-radius: 36px;
-      min-height: 220px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 10px 20px;
-      opacity: 0;
-      transform: translateY(30px);
-      filter: blur(10px);
-      animation: fadeUp 1s ease forwards;
-    }
-
-    .stat-box:nth-child(1) { animation-delay: 0.35s; }
-    .stat-box:nth-child(2) { animation-delay: 0.48s; }
-    .stat-box:nth-child(3) { animation-delay: 0.61s; }
-
-    .stat-box strong {
-      font-size: 86px;
-      line-height: 1;
-      color: #ab8848;
-    }
-
-    .stat-box span {
-      font-size: 33px;
-      line-height: 0.95;
-      margin-top: 10px;
-    }
-
-    /* FAIXA MAIS PRA BAIXO */
-    .mid-faixa-wrap {
-      position: relative;
-      z-index: 15;
-      height: 0;
-    }
-
-    .mid-faixa {
-      position: absolute;
-      left: 50%;
-      top: 78px;
-      transform: translateX(-50%) rotate(-3deg);
-      width: 120vw;
-      background: #ab8848;
-      overflow: hidden;
-      padding: 16px 0;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-    }
-
-    .mid-faixa__track {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      width: max-content;
-      animation: faixaMove 22s linear infinite;
-    }
-
-    .mid-faixa__track span {
-      color: #f4eee3;
-      font-size: 21px;
-      letter-spacing: 5px;
-      white-space: nowrap;
-      line-height: 1;
-    }
-
-    @keyframes faixaMove {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
-    }
-
-    .sobre-section {
-      position: relative;
-      background: #dcdcdc;
-      padding: 210px 0 100px;
-    }
-
-    .sobre-content {
-      text-align: center;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    .doctor-wrap {
-      position: relative;
-      width: 620px;
-      height: 620px;
-      margin: 0 auto 8px;
-    }
-
-    /* SÓ A FOTO */
-    .doctor-image {
-      position: absolute;
-      left: 50%;
-      top: 0;
-      transform: translateX(-50%);
-      width: 620px;
-      z-index: 1;
-      opacity: 0;
-      animation: doctorReveal 1.15s cubic-bezier(.2,.8,.2,1) forwards;
-      animation-delay: 0.2s;
-    }
-
-    .doctor-image img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .sobre-title {
-      font-size: 78px;
-      line-height: 1;
-      font-weight: 500;
-      margin-top: 0;
-      opacity: 0;
-      transform: translateY(28px);
-      filter: blur(10px);
-      animation: fadeUp 1s ease forwards;
-      animation-delay: 0.35s;
-    }
-
-    .sobre-text {
-      max-width: 1160px;
-      margin: 18px auto 0;
-      opacity: 0;
-      transform: translateY(28px);
-      filter: blur(10px);
-      animation: fadeUp 1s ease forwards;
-      animation-delay: 0.48s;
-    }
-
-    .sobre-text p {
-      font-size: 27px;
-      line-height: 0.98;
-      margin-bottom: 18px;
-    }
-
-    .cro-box {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 18px;
-      width: min(100%, 540px);
-      min-height: 78px;
-      border: 2px solid rgba(170, 136, 72, 0.88);
-      border-radius: 999px;
-      font-size: 32px;
-      opacity: 0;
-      transform: translateY(28px);
-      filter: blur(10px);
-      animation: fadeUp 1s ease forwards;
-      animation-delay: 0.62s;
-    }
-
-    @keyframes revealLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-36px);
-        filter: blur(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes revealRight {
-      from {
-        opacity: 0;
-        transform: translateX(36px);
-        filter: blur(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(36px);
-        filter: blur(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
-    @keyframes doctorReveal {
-      0% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(70px) scale(0.97);
-        filter: blur(14px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
-        filter: blur(0);
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .hero {
-        min-height: auto;
-        padding: 88px 0 60px;
-        background: #dcdcdc url("assets/bg-hero-mobile.webp") center top / cover no-repeat;
-      }
-
-      .hero__overlay {
-        background: rgba(235, 235, 235, 0.60);
-      }
-
-      .hero__content {
-        grid-template-columns: 1fr;
-        gap: 18px;
-        padding-top: 18px;
-      }
-
-      .hero__right {
-        order: -1;
-        min-height: auto;
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px;
-      }
-
-      .case-card {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1.42;
-        border-radius: 18px;
-        animation-name: fadeUp;
-      }
-
-      .case-card--primary,
-      .case-card--secondary {
-        top: auto;
-        left: auto;
-      }
-
-      .hero__left {
-        max-width: none;
-        text-align: center;
-        padding-top: 0;
-      }
-
-      .hero__title {
-        font-size: 56px;
-        line-height: 0.98;
-        letter-spacing: -0.6px;
-        max-width: 360px;
-        margin: 0 auto;
-      }
-
-      .hero__text {
-        font-size: 24px;
-        line-height: 1.04;
-        max-width: 360px;
-        margin: 18px auto 0;
-      }
-
-      .hero__actions {
-        max-width: 360px;
-        margin: 18px auto 0;
-      }
-
-      .btn {
-        min-height: 62px;
-        font-size: 18px;
-        border-radius: 14px;
-      }
-
-      .stats {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        margin-top: 24px;
-      }
-
-      .stat-box {
-        min-height: 150px;
-        border-radius: 28px;
-      }
-
-      .stat-box strong {
-        font-size: 58px;
-      }
-
-      .stat-box span {
-        font-size: 24px;
-        line-height: 1;
-      }
-
-      .mid-faixa {
-        top: 38px;
-        width: 155vw;
-        padding: 11px 0;
-      }
-
-      .mid-faixa__track {
-        gap: 18px;
-      }
-
-      .mid-faixa__track span {
-        font-size: 11px;
-        letter-spacing: 2.8px;
-      }
-
-      .sobre-section {
-        padding: 122px 0 76px;
-      }
-
-      .doctor-wrap {
-        width: 372px;
-        height: 372px;
-        margin-bottom: 14px;
-      }
-
-      .doctor-image {
-        width: 372px;
-      }
-
-      .sobre-title {
-        font-size: 54px;
-        line-height: 1;
-        max-width: 360px;
-        margin: 0 auto;
-      }
-
-      .sobre-text {
-        max-width: 360px;
-        margin-top: 18px;
-      }
-
-      .sobre-text p {
-        font-size: 22px;
-        line-height: 1.05;
-        margin-bottom: 16px;
-      }
-
-      .cro-box {
-        width: min(100%, 360px);
-        min-height: 64px;
-        font-size: 22px;
-        margin-top: 14px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        padding: 0 18px;
-      }
-
-      .hero {
-        padding: 82px 0 42px;
-      }
-
-      .hero__title {
-        font-size: 33px;
-        max-width: 300px;
-      }
-
-      .hero__text {
-        font-size: 15px;
-        max-width: 305px;
-      }
-
-      .hero__actions {
-        max-width: 305px;
-      }
-
-      .btn {
-        min-height: 56px;
-        font-size: 15px;
-      }
-
-      .mid-faixa {
-        width: 170vw;
-        top: 24px;
-      }
-
-      .mid-faixa__track span {
-        font-size: 10px;
-        letter-spacing: 2.2px;
-      }
-
-      .sobre-section {
-        padding: 108px 0 68px;
-      }
-
-      .doctor-wrap {
-        width: 324px;
-        height: 324px;
-      }
-
-      .doctor-image {
-        width: 324px;
-      }
-
-      .sobre-title {
-        font-size: 33px;
-        max-width: 310px;
-      }
-
-      .sobre-text {
-        max-width: 320px;
-      }
-
-      .sobre-text p {
-        font-size: 15px;
-        line-height: 1.08;
-      }
-
-      .cro-box {
-        width: min(100%, 320px);
-        min-height: 56px;
-        font-size: 18px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doutor Calixto</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Kameron:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:"Kameron",serif;
+  background:#dcdcdc;
+  color:#111;
+}
+
+.container{
+  width:min(1400px,100%);
+  margin:auto;
+  padding:0 30px;
+}
+
+/* HERO */
+.hero{
+  padding:100px 0 140px;
+  background:#dcdcdc url("assets/bg-hero-desktop.webp") center/cover no-repeat;
+  position:relative;
+}
+
+.hero__content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:40px;
+}
+
+.hero__title{
+  font-size:70px;
+  line-height:0.95;
+}
+
+.hero__title span{color:#ab8848;font-weight:700;}
+
+.hero__text{
+  font-size:24px;
+  margin-top:20px;
+  max-width:520px;
+}
+
+.hero__actions{
+  margin-top:25px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.btn{
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:18px;
+  font-size:22px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.btn--gold{
+  background:#b49357;
+  color:#fff;
+}
+
+.btn--outline{
+  border:2px solid #b49357;
+  color:#111;
+}
+
+/* IMAGENS */
+.hero__right{
+  display:flex;
+  gap:20px;
+}
+
+.case-card{
+  width:320px;
+  height:500px;
+  border-radius:30px;
+  overflow:hidden;
+  border:3px solid #fff;
+  box-shadow:0 10px 20px rgba(0,0,0,0.1);
+}
+
+.case-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CARDS (AGORA CORRETO) */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:80px; /* DESCIDO CORRETAMENTE */
+}
+
+.stat-box{
+  background:#e9e9e9;
+  border:2px solid #b49357;
+  border-radius:30px;
+  padding:40px 20px;
+  text-align:center;
+}
+
+.stat-box strong{
+  font-size:70px;
+  color:#ab8848;
+}
+
+.stat-box span{
+  display:block;
+  font-size:26px;
+  margin-top:10px;
+}
+
+/* FAIXA */
+.faixa{
+  margin-top:60px;
+  background:#ab8848;
+  transform:rotate(-3deg);
+  padding:15px 0;
+  overflow:hidden;
+}
+
+.faixa span{
+  color:#fff;
+  font-size:18px;
+  letter-spacing:4px;
+  white-space:nowrap;
+  display:inline-block;
+  animation:scroll 20s linear infinite;
+}
+
+@keyframes scroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* SOBRE */
+.sobre{
+  padding:160px 0 100px;
+  text-align:center;
+}
+
+.sobre img{
+  width:420px;
+  margin-bottom:20px;
+}
+
+.sobre h2{
+  font-size:60px;
+}
+
+.sobre h2 span{color:#ab8848;}
+
+.sobre p{
+  max-width:800px;
+  margin:20px auto;
+  font-size:22px;
+}
+
+.cro{
+  margin-top:20px;
+  border:2px solid #ab8848;
+  border-radius:50px;
+  padding:15px 40px;
+  display:inline-block;
+  font-size:24px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero__content{
+  grid-template-columns:1fr;
+  text-align:center;
+}
+
+.hero__right{
+  order:-1;
+  justify-content:center;
+}
+
+.case-card{
+  width:48%;
+  height:auto;
+}
+
+.hero__title{
+  font-size:33px;
+}
+
+.hero__text{
+  font-size:15px;
+}
+
+.stats{
+  grid-template-columns:1fr;
+  margin-top:40px;
+}
+
+.sobre img{
+  width:260px;
+}
+
+.sobre h2{
+  font-size:34px;
+}
+
+.sobre p{
+  font-size:16px;
+}
+}
+</style>
 </head>
+
 <body>
 
-  <main>
-    <section class="hero" id="inicio">
-      <div class="hero__overlay"></div>
+<section class="hero">
+  <div class="container hero__content">
 
-      <div class="container hero__content">
-        <div class="hero__left">
-          <h1 class="hero__title">
-            O <span>sorriso</span> que<br />
-            sempre imaginou,<br />
-            realizado com<br />
-            <span>precisão!</span>
-          </h1>
+    <div>
+      <h1 class="hero__title">
+        O <span>sorriso</span> que<br>
+        sempre imaginou,<br>
+        realizado com<br>
+        <span>precisão!</span>
+      </h1>
 
-          <p class="hero__text">
-            Cada tratamento planejado individualmente, com rigor técnico e atenção estética
-            para devolver não apenas um sorriso saudável — mas a confiança que vem com ele.
-          </p>
+      <p class="hero__text">
+        Cada tratamento planejado individualmente, com rigor técnico e atenção estética para devolver não apenas um sorriso saudável — mas a confiança que vem com ele.
+      </p>
 
-          <div class="hero__actions">
-            <a class="btn btn--gold" href="https://wa.me/554488145099" target="_blank">AGENDAR PELO WHATSAPP</a>
-            <a class="btn btn--outline" href="#sobre">VER CASES DE RESULTADO</a>
-          </div>
-        </div>
-
-        <div class="hero__right">
-          <article class="case-card case-card--primary">
-            <img src="assets/foto-1.webp" alt="Caso clínico 1" />
-          </article>
-
-          <article class="case-card case-card--secondary">
-            <img src="assets/foto-2.webp" alt="Caso clínico 2" />
-          </article>
-        </div>
-      </div>
-
-      <div class="container stats">
-        <article class="stat-box">
-          <strong>+00</strong>
-          <span>Anos de<br />Experiência</span>
-        </article>
-
-        <article class="stat-box">
-          <strong>+00</strong>
-          <span>Casos<br />Transformados</span>
-        </article>
-
-        <article class="stat-box">
-          <strong>+00</strong>
-          <span>Casos<br />Transformados</span>
-        </article>
-      </div>
-    </section>
-
-    <div class="mid-faixa-wrap" aria-hidden="true">
-      <div class="mid-faixa">
-        <div class="mid-faixa__track">
-          <span>SORRISOS QUE TRANSFORMAM • ESTÉTICA COM PRECISÃO • RESULTADOS QUE DURAM •</span>
-          <span>SORRISOS QUE TRANSFORMAM • ESTÉTICA COM PRECISÃO • RESULTADOS QUE DURAM •</span>
-          <span>SORRISOS QUE TRANSFORMAM • ESTÉTICA COM PRECISÃO • RESULTADOS QUE DURAM •</span>
-        </div>
+      <div class="hero__actions">
+        <a href="#" class="btn btn--gold">AGENDAR PELO WHATSAPP</a>
+        <a href="#" class="btn btn--outline">VER CASES DE RESULTADO</a>
       </div>
     </div>
 
-    <section class="sobre-section" id="sobre">
-      <div class="container">
-        <div class="sobre-content">
-          <div class="doctor-wrap">
-            <div class="doctor-image">
-              <img src="assets/imagem-doutor.png" alt="Dr. Eduardo Calixto" />
-            </div>
-          </div>
-
-          <h2 class="sobre-title">Sobre o <span>Dr. Calixto</span></h2>
-
-          <div class="sobre-text">
-            <p>
-              Dr. Eduardo Calixto é especialista em Implantodontia e Periodontia, com foco em estética dental. Seu
-              trabalho une rigor técnico e harmonia facial para devolver proporção, equilíbrio e expressão ao sorriso.
-            </p>
-
-            <p>
-              Cada caso é único. O planejamento individualizado orienta decisões precisas — é isso que transforma
-              um bom resultado em extraordinário.
-            </p>
-          </div>
-
-          <div class="cro-box">CRO 23638</div>
-        </div>
+    <div class="hero__right">
+      <div class="case-card">
+        <img src="assets/foto-1.webp">
       </div>
-    </section>
-  </main>
+      <div class="case-card">
+        <img src="assets/foto-2.webp">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CARDS -->
+  <div class="container stats">
+    <div class="stat-box">
+      <strong>+00</strong>
+      <span>Anos de Experiência</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>+00</strong>
+      <span>Casos Transformados</span>
+    </div>
+
+    <div class="stat-box">
+      <strong>+00</strong>
+      <span>Casos Transformados</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAIXA -->
+<div class="faixa">
+  <span>
+    SORRISOS QUE TRANSFORMAM • ESTÉTICA COM PRECISÃO • RESULTADOS QUE DURAM •
+    SORRISOS QUE TRANSFORMAM • ESTÉTICA COM PRECISÃO • RESULTADOS QUE DURAM •
+  </span>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre">
+  <img src="assets/imagem-doutor.png">
+
+  <h2>Sobre o <span>Dr. Calixto</span></h2>
+
+  <p>
+    Dr. Eduardo Calixto é especialista em Implantodontia e Periodontia, com foco em estética dental. Seu trabalho une rigor técnico e harmonia facial.
+  </p>
+
+  <p>
+    Cada caso é único. O planejamento individualizado orienta decisões precisas — é isso que transforma um bom resultado em extraordinário.
+  </p>
+
+  <div class="cro">CRO 23638</div>
+</section>
 
 </body>
 </html>

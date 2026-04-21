@@ -37,18 +37,17 @@
       overflow: hidden;
     }
 
-    /* HERO */
     .hero {
       position: relative;
       min-height: 100vh;
-      padding: 92px 0 34px;
+      padding: 92px 0 120px;
       background: #dcdcdc url("assets/bg-hero-desktop.webp") center top / cover no-repeat;
     }
 
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background: rgba(235, 235, 235, 0.60);
+      background: rgba(235, 235, 235, 0.56);
     }
 
     .hero__content,
@@ -166,7 +165,6 @@
       object-fit: cover;
     }
 
-    /* MAIS DISTÂNCIA ENTRE AS FOTOS */
     .case-card--primary {
       top: 26px;
       left: 24px;
@@ -183,15 +181,17 @@
       animation-delay: 0.4s;
     }
 
+    /* CARDS NA MESMA FAIXA VISUAL DAS FOTOS E MAIS PRA BAIXO */
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 6px;
+      margin-top: -120px;
+      padding-top: 0;
     }
 
     .stat-box {
-      background: rgba(234, 234, 234, 0.92);
+      background: rgba(234, 234, 234, 0.94);
       border: 2px solid #b49357;
       border-radius: 36px;
       min-height: 220px;
@@ -223,7 +223,7 @@
       margin-top: 10px;
     }
 
-    /* FAIXA ENTRE AS DUAS SEÇÕES */
+    /* FAIXA MAIS PRA BAIXO */
     .mid-faixa-wrap {
       position: relative;
       z-index: 15;
@@ -233,7 +233,7 @@
     .mid-faixa {
       position: absolute;
       left: 50%;
-      top: 28px; /* mais pra baixo */
+      top: 78px;
       transform: translateX(-50%) rotate(-3deg);
       width: 120vw;
       background: #ab8848;
@@ -263,11 +263,10 @@
       to { transform: translateX(-50%); }
     }
 
-    /* SOBRE */
     .sobre-section {
       position: relative;
       background: #dcdcdc;
-      padding: 168px 0 100px;
+      padding: 210px 0 100px;
     }
 
     .sobre-content {
@@ -283,6 +282,7 @@
       margin: 0 auto 8px;
     }
 
+    /* SÓ A FOTO */
     .doctor-image {
       position: absolute;
       left: 50%;
@@ -299,30 +299,6 @@
       display: block;
       width: 100%;
       height: auto;
-    }
-
-    /* TEXTO CIRCULAR AJUSTADO NO ANEL BRANCO */
-    .circle-text {
-      position: absolute;
-      inset: 0;
-      width: 620px;
-      height: 620px;
-      z-index: 2;
-      animation: spinText 18s linear infinite;
-      pointer-events: none;
-    }
-
-    .circle-text text {
-      font-family: "Kameron", serif;
-      font-size: 17px;
-      letter-spacing: 1.8px;
-      fill: rgba(164, 132, 74, 0.95);
-      text-transform: uppercase;
-    }
-
-    @keyframes spinText {
-      from { transform: rotate(0); }
-      to { transform: rotate(360deg); }
     }
 
     .sobre-title {
@@ -370,7 +346,6 @@
       animation-delay: 0.62s;
     }
 
-    /* ANIMAÇÕES */
     @keyframes revealLeft {
       from {
         opacity: 0;
@@ -423,11 +398,10 @@
       }
     }
 
-    /* MOBILE */
     @media (max-width: 1024px) {
       .hero {
         min-height: auto;
-        padding: 88px 0 46px;
+        padding: 88px 0 60px;
         background: #dcdcdc url("assets/bg-hero-mobile.webp") center top / cover no-repeat;
       }
 
@@ -446,7 +420,7 @@
         min-height: auto;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 16px; /* mais separadas no mobile */
+        gap: 16px;
       }
 
       .case-card {
@@ -501,7 +475,7 @@
       .stats {
         grid-template-columns: 1fr;
         gap: 14px;
-        margin-top: 18px;
+        margin-top: 24px;
       }
 
       .stat-box {
@@ -519,7 +493,7 @@
       }
 
       .mid-faixa {
-        top: 18px;
+        top: 38px;
         width: 155vw;
         padding: 11px 0;
       }
@@ -534,7 +508,7 @@
       }
 
       .sobre-section {
-        padding: 108px 0 76px;
+        padding: 122px 0 76px;
       }
 
       .doctor-wrap {
@@ -545,16 +519,6 @@
 
       .doctor-image {
         width: 372px;
-      }
-
-      .circle-text {
-        width: 372px;
-        height: 372px;
-      }
-
-      .circle-text text {
-        font-size: 12px;
-        letter-spacing: 1px;
       }
 
       .sobre-title {
@@ -613,7 +577,7 @@
 
       .mid-faixa {
         width: 170vw;
-        top: 12px;
+        top: 24px;
       }
 
       .mid-faixa__track span {
@@ -622,7 +586,7 @@
       }
 
       .sobre-section {
-        padding: 94px 0 68px;
+        padding: 108px 0 68px;
       }
 
       .doctor-wrap {
@@ -632,16 +596,6 @@
 
       .doctor-image {
         width: 324px;
-      }
-
-      .circle-text {
-        width: 324px;
-        height: 324px;
-      }
-
-      .circle-text text {
-        font-size: 10px;
-        letter-spacing: 0.8px;
       }
 
       .sobre-title {
@@ -735,22 +689,6 @@
       <div class="container">
         <div class="sobre-content">
           <div class="doctor-wrap">
-            <svg class="circle-text" viewBox="0 0 620 620" aria-hidden="true">
-              <defs>
-                <path
-                  id="circlePath"
-                  d="M 310,310
-                     m -246,0
-                     a 246,246 0 1,1 492,0
-                     a 246,246 0 1,1 -492,0" />
-              </defs>
-              <text>
-                <textPath href="#circlePath" startOffset="0%">
-                  EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO • EDUARDO CALIXTO •
-                </textPath>
-              </text>
-            </svg>
-
             <div class="doctor-image">
               <img src="assets/imagem-doutor.png" alt="Dr. Eduardo Calixto" />
             </div>

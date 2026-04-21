@@ -724,3 +724,225 @@
 
 </body>
 </html>
+
+<section class="servicos-section" id="servicos">
+  <div class="container">
+    <div class="servicos-heading">
+      <span class="servicos-kicker fade-up">SERVIÇOS</span>
+      <h2 class="servicos-title fade-up delay-1">
+        Nossas <span>Especialidades</span>
+      </h2>
+    </div>
+
+    <div class="servicos-grid">
+      <article class="servico-card fade-up">
+        <h3>Fascetas<br>em Resina</h3>
+        <p>
+          Transformação estética completa em uma única sessão. As facetas em resina corrigem cor,
+          forma e proporção dos dentes, devolvendo um sorriso natural e harmonioso — sem desgastes
+          excessivos da estrutura dental. Especialidade do Dr. Eduardo, com casos realizados em 8 a
+          10 facetas superiores.
+        </p>
+      </article>
+
+      <article class="servico-card fade-up delay-1">
+        <h3>Correção<br>Gengival</h3>
+        <p>
+          A gengiva define o enquadramento do sorriso. O tratamento periodontal corrige o contorno
+          gengival, devolve leveza e equilíbrio visual ao sorriso — frequentemente realizado em
+          conjunto com as facetas para um resultado esteticamente completo.
+        </p>
+      </article>
+
+      <article class="servico-card fade-up delay-2">
+        <h3>Clareamento<br>Dental</h3>
+        <p>
+          Protocolo supervisionado e personalizado conforme a sensibilidade e objetivo estético de
+          cada paciente. Realizado de forma segura, sem comprometer o esmalte dental, com resultado
+          progressivo e controlado.
+        </p>
+      </article>
+
+      <article class="servico-card fade-up delay-1 servico-card--bottom">
+        <h3>Implantes<br>Dentários</h3>
+        <p>
+          Reposição dental com aparência e função de dentes naturais. Como especialista em
+          Implantodontia, o Dr. Eduardo realiza o procedimento com técnicas que reduzem o desconforto
+          pós-operatório e garantem maior durabilidade a longo prazo.
+        </p>
+      </article>
+
+      <article class="servico-card fade-up delay-2 servico-card--bottom">
+        <h3>Placa de<br>Bruxismo</h3>
+        <p>
+          O bruxismo desgasta os dentes silenciosamente. Após a recuperação estética, a placa de
+          bruxismo protege o resultado do tratamento — garantindo que o investimento no seu sorriso
+          seja duradouro.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .servicos-section {
+    background: #dcdcdc;
+    padding: 92px 0 104px;
+    position: relative;
+  }
+
+  .servicos-heading {
+    text-align: center;
+    margin-bottom: 42px;
+  }
+
+  .servicos-kicker {
+    display: block;
+    color: #ab8848;
+    font-size: 26px;
+    letter-spacing: 10px;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .servicos-title {
+    font-size: 76px;
+    line-height: .95;
+    font-weight: 500;
+    color: #111;
+  }
+
+  .servicos-title span {
+    color: #ab8848;
+    font-weight: 700;
+  }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 22px;
+    align-items: start;
+  }
+
+  .servico-card {
+    background: linear-gradient(180deg, #bda272 0%, #a8874a 100%);
+    border-radius: 18px;
+    min-height: 378px;
+    padding: 34px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+  }
+
+  .servico-card:nth-child(1),
+  .servico-card:nth-child(2),
+  .servico-card:nth-child(3) {
+    grid-column: span 2;
+  }
+
+  .servico-card--bottom {
+    min-height: 378px;
+  }
+
+  .servico-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+
+  .servico-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+
+  .servico-card h3 {
+    font-size: 46px;
+    line-height: .95;
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  .servico-card p {
+    font-size: 18px;
+    line-height: .95;
+    max-width: 330px;
+  }
+
+  /* mesmas animações */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(36px);
+    filter: blur(10px);
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .delay-1 { animation-delay: .15s; }
+  .delay-2 { animation-delay: .3s; }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(36px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .servicos-section {
+      padding: 74px 0 82px;
+    }
+
+    .servicos-heading {
+      margin-bottom: 28px;
+    }
+
+    .servicos-kicker {
+      font-size: 15px;
+      letter-spacing: 7px;
+      margin-bottom: 4px;
+    }
+
+    .servicos-title {
+      font-size: 33px;
+      line-height: 1;
+    }
+
+    .servicos-grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      max-width: 370px;
+      margin: 0 auto;
+    }
+
+    .servico-card,
+    .servico-card:nth-child(1),
+    .servico-card:nth-child(2),
+    .servico-card:nth-child(3),
+    .servico-card:nth-child(4),
+    .servico-card:nth-child(5) {
+      grid-column: auto;
+      min-height: 290px;
+    }
+
+    .servico-card {
+      border-radius: 16px;
+      padding: 28px 22px 24px;
+    }
+
+    .servico-card h3 {
+      font-size: 30px;
+      margin-bottom: 22px;
+    }
+
+    .servico-card p {
+      font-size: 15px;
+      line-height: .96;
+      max-width: 290px;
+    }
+  }
+</style>

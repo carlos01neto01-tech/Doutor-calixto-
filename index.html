@@ -41,14 +41,14 @@
     .hero {
       position: relative;
       min-height: 100vh;
-      padding: 92px 0 36px;
+      padding: 92px 0 34px;
       background: #dcdcdc url("assets/bg-hero-desktop.webp") center top / cover no-repeat;
     }
 
     .hero__overlay {
       position: absolute;
       inset: 0;
-      background: rgba(235, 235, 235, 0.78);
+      background: rgba(235, 235, 235, 0.60);
     }
 
     .hero__content,
@@ -151,7 +151,7 @@
       position: absolute;
       overflow: hidden;
       border-radius: 34px;
-      border: 3px solid rgba(255, 255, 255, 0.68);
+      border: 3px solid rgba(255, 255, 255, 0.70);
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
       opacity: 0;
       transform: translateX(34px);
@@ -166,18 +166,19 @@
       object-fit: cover;
     }
 
+    /* MAIS DISTÂNCIA ENTRE AS FOTOS */
     .case-card--primary {
       top: 26px;
-      left: 36px;
-      width: 370px;
+      left: 24px;
+      width: 360px;
       height: 540px;
       animation-delay: 0.24s;
     }
 
     .case-card--secondary {
       top: 26px;
-      left: 394px;
-      width: 370px;
+      left: 412px;
+      width: 360px;
       height: 540px;
       animation-delay: 0.4s;
     }
@@ -186,7 +187,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-      margin-top: 10px;
+      margin-top: 6px;
     }
 
     .stat-box {
@@ -232,7 +233,7 @@
     .mid-faixa {
       position: absolute;
       left: 50%;
-      top: -6px;
+      top: 28px; /* mais pra baixo */
       transform: translateX(-50%) rotate(-3deg);
       width: 120vw;
       background: #ab8848;
@@ -266,7 +267,7 @@
     .sobre-section {
       position: relative;
       background: #dcdcdc;
-      padding: 118px 0 100px;
+      padding: 168px 0 100px;
     }
 
     .sobre-content {
@@ -300,9 +301,12 @@
       height: auto;
     }
 
+    /* TEXTO CIRCULAR AJUSTADO NO ANEL BRANCO */
     .circle-text {
       position: absolute;
-      inset: 12px;
+      inset: 0;
+      width: 620px;
+      height: 620px;
       z-index: 2;
       animation: spinText 18s linear infinite;
       pointer-events: none;
@@ -310,8 +314,8 @@
 
     .circle-text text {
       font-family: "Kameron", serif;
-      font-size: 18px;
-      letter-spacing: 2.1px;
+      font-size: 17px;
+      letter-spacing: 1.8px;
       fill: rgba(164, 132, 74, 0.95);
       text-transform: uppercase;
     }
@@ -428,7 +432,7 @@
       }
 
       .hero__overlay {
-        background: rgba(235, 235, 235, 0.83);
+        background: rgba(235, 235, 235, 0.60);
       }
 
       .hero__content {
@@ -442,7 +446,7 @@
         min-height: auto;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px;
+        gap: 16px; /* mais separadas no mobile */
       }
 
       .case-card {
@@ -515,7 +519,7 @@
       }
 
       .mid-faixa {
-        top: -4px;
+        top: 18px;
         width: 155vw;
         padding: 11px 0;
       }
@@ -530,7 +534,7 @@
       }
 
       .sobre-section {
-        padding: 78px 0 76px;
+        padding: 108px 0 76px;
       }
 
       .doctor-wrap {
@@ -544,12 +548,13 @@
       }
 
       .circle-text {
-        inset: 14px;
+        width: 372px;
+        height: 372px;
       }
 
       .circle-text text {
         font-size: 12px;
-        letter-spacing: 1.1px;
+        letter-spacing: 1px;
       }
 
       .sobre-title {
@@ -608,6 +613,7 @@
 
       .mid-faixa {
         width: 170vw;
+        top: 12px;
       }
 
       .mid-faixa__track span {
@@ -616,7 +622,7 @@
       }
 
       .sobre-section {
-        padding: 70px 0 68px;
+        padding: 94px 0 68px;
       }
 
       .doctor-wrap {
@@ -626,6 +632,16 @@
 
       .doctor-image {
         width: 324px;
+      }
+
+      .circle-text {
+        width: 324px;
+        height: 324px;
+      }
+
+      .circle-text text {
+        font-size: 10px;
+        letter-spacing: 0.8px;
       }
 
       .sobre-title {
@@ -719,14 +735,14 @@
       <div class="container">
         <div class="sobre-content">
           <div class="doctor-wrap">
-            <svg class="circle-text" viewBox="0 0 600 600" aria-hidden="true">
+            <svg class="circle-text" viewBox="0 0 620 620" aria-hidden="true">
               <defs>
                 <path
                   id="circlePath"
-                  d="M 300,300
-                     m -250,0
-                     a 250,250 0 1,1 500,0
-                     a 250,250 0 1,1 -500,0" />
+                  d="M 310,310
+                     m -246,0
+                     a 246,246 0 1,1 492,0
+                     a 246,246 0 1,1 -492,0" />
               </defs>
               <text>
                 <textPath href="#circlePath" startOffset="0%">

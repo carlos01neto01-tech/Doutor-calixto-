@@ -1361,3 +1361,266 @@
     }
   }
 </style>
+<section class="faq-location-section" id="faq-localizacao">
+  <div class="container">
+    <!-- PARTE 6 - FAQ -->
+    <div class="faq-block">
+      <h2 class="faq-title fade-up">Perguntas Frequentes:</h2>
+
+      <div class="faq-list">
+        <details class="faq-item fade-up">
+          <summary>
+            <span>Qual é a durabilidade das facetas de resina?</span>
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            A durabilidade das facetas de resina varia conforme os cuidados do paciente, hábitos e manutenção periódica.
+            Com acompanhamento adequado, higiene correta e revisões regulares, o resultado pode se manter bonito e funcional por anos.
+          </div>
+        </details>
+
+        <details class="faq-item fade-up delay-1">
+          <summary>
+            <span>O clareamento dental danifica os dentes?</span>
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            Quando realizado com acompanhamento profissional e protocolo adequado, o clareamento dental é seguro.
+            O procedimento é planejado conforme a sensibilidade e o objetivo estético de cada paciente, preservando a estrutura dental.
+          </div>
+        </details>
+
+        <details class="faq-item fade-up delay-2">
+          <summary>
+            <span>Como funciona a primeira consulta?</span>
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            Na primeira consulta é feita uma avaliação individualizada do sorriso, das proporções dentais, da função e da estética.
+            A partir disso, o planejamento define o melhor caminho para alcançar um resultado natural, harmônico e preciso.
+          </div>
+        </details>
+
+        <details class="faq-item fade-up delay-3">
+          <summary>
+            <span>Posso combinar facetas com outros tratamentos?</span>
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            Sim. Em muitos casos, as facetas podem ser associadas a outros procedimentos, como correção gengival, clareamento ou reabilitação.
+            Tudo depende da análise clínica e do planejamento ideal para o seu caso.
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- PARTE 7 - LOCALIZAÇÃO -->
+    <div class="location-block">
+      <h2 class="location-title fade-up">Localização</h2>
+
+      <a
+        class="location-map fade-up delay-1"
+        href="https://www.google.com/maps/search/?api=1&query=Rua+Marechal+Deodoro,+51,+Centro,+Curitiba,+PR,+80060-010"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Abrir localização no Google Maps"
+      >
+        <img src="assets/mapa-localizacao.png" alt="Mapa da localização do consultório" />
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-location-section {
+    background: #dcdcdc;
+    padding: 88px 0 100px;
+  }
+
+  .faq-block {
+    margin-bottom: 90px;
+  }
+
+  .faq-title,
+  .location-title {
+    font-size: 76px;
+    line-height: .95;
+    font-weight: 700;
+    color: #9d7b3f;
+    margin-bottom: 26px;
+    letter-spacing: -1px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .faq-item {
+    background: #cfcfcf;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px 26px;
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+  }
+
+  .faq-icon::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 0;
+    height: 0;
+    margin: auto;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 12px solid #9d7b3f;
+    transition: transform .25s ease;
+    transform-origin: center;
+  }
+
+  .faq-item[open] .faq-icon::before {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    padding: 0 26px 22px;
+    font-size: 20px;
+    line-height: 1.15;
+    color: #222;
+    max-width: 1180px;
+  }
+
+  .location-block {
+    text-align: center;
+  }
+
+  .location-title {
+    text-align: center;
+    margin-bottom: 34px;
+  }
+
+  .location-map {
+    display: block;
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    border-radius: 0;
+    overflow: hidden;
+    text-decoration: none;
+  }
+
+  .location-map img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* mesmas animações */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(36px);
+    filter: blur(10px);
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .delay-1 { animation-delay: .15s; }
+  .delay-2 { animation-delay: .3s; }
+  .delay-3 { animation-delay: .45s; }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(36px);
+      filter: blur(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .faq-location-section {
+      padding: 68px 0 76px;
+    }
+
+    .faq-block {
+      margin-bottom: 66px;
+    }
+
+    .faq-title,
+    .location-title {
+      font-size: 33px;
+      line-height: 1;
+      margin-bottom: 18px;
+      letter-spacing: -.4px;
+    }
+
+    .faq-list {
+      gap: 14px;
+    }
+
+    .faq-item {
+      border-radius: 8px;
+    }
+
+    .faq-item summary {
+      padding: 16px 14px;
+      font-size: 14px;
+      line-height: 1.08;
+      gap: 12px;
+    }
+
+    .faq-icon {
+      width: 14px;
+      height: 14px;
+      flex: 0 0 14px;
+    }
+
+    .faq-icon::before {
+      border-left-width: 7px;
+      border-right-width: 7px;
+      border-top-width: 9px;
+    }
+
+    .faq-answer {
+      padding: 0 14px 16px;
+      font-size: 13px;
+      line-height: 1.18;
+      text-align: left;
+    }
+
+    .location-title {
+      margin-bottom: 24px;
+    }
+
+    .location-map {
+      max-width: 100%;
+    }
+  }
+</style>

@@ -698,6 +698,28 @@
     }
     .footer-contato strong{font-weight:700}
 
+
+
+    /* ===== WHATSAPP CHATBOT FLUTUANTE ===== */
+    .whatsapp-chat{position:fixed;right:24px;bottom:24px;z-index:9999;font-family:"Kameron",serif;}
+    .whatsapp-chat__button{width:72px;height:72px;border:0;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 14px 34px rgba(0,0,0,.28);transition:transform .25s ease, box-shadow .25s ease;position:relative;}
+    .whatsapp-chat__button:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 42px rgba(0,0,0,.34);}
+    .whatsapp-chat__button svg{width:38px;height:38px;fill:currentColor;}
+    .whatsapp-chat__button::before{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid rgba(37,211,102,.35);animation:whatsappPulse 1.8s ease-out infinite;}
+    .whatsapp-chat__box{position:absolute;right:0;bottom:88px;width:360px;max-width:calc(100vw - 36px);background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 18px 46px rgba(0,0,0,.28);opacity:0;pointer-events:none;transform:translateY(14px) scale(.96);transition:opacity .22s ease, transform .22s ease;}
+    .whatsapp-chat.is-open .whatsapp-chat__box{opacity:1;pointer-events:auto;transform:translateY(0) scale(1);}
+    .whatsapp-chat__header{background:linear-gradient(135deg,#8f6f3e 0%, #b49357 100%);color:#fff;padding:20px 22px 18px;position:relative;}
+    .whatsapp-chat__header strong{display:block;font-size:22px;line-height:1;margin-bottom:7px;}
+    .whatsapp-chat__header span{display:block;font-size:16px;line-height:1.15;opacity:.95;max-width:270px;}
+    .whatsapp-chat__close{position:absolute;top:12px;right:14px;width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:24px;line-height:1;cursor:pointer;}
+    .whatsapp-chat__body{padding:18px;background:#f7f3ec;}
+    .whatsapp-chat__question{font-size:18px;line-height:1.12;font-weight:700;color:#111;margin-bottom:14px;}
+    .whatsapp-chat__options{display:flex;flex-direction:column;gap:10px;}
+    .whatsapp-chat__option{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:52px;border-radius:14px;background:#fff;border:1px solid rgba(143,111,62,.25);color:#111;font-size:17px;font-weight:700;line-height:1;padding:14px 16px;transition:transform .2s ease, background .2s ease, border-color .2s ease;}
+    .whatsapp-chat__option:hover{transform:translateX(-3px);background:#fffaf2;border-color:rgba(143,111,62,.65);}
+    .whatsapp-chat__option small{color:#9d7b3f;font-size:20px;line-height:1;}
+    @keyframes whatsappPulse{from{transform:scale(.88);opacity:.75}to{transform:scale(1.22);opacity:0}}
+
     /* ===== MOBILE ===== */
     @media (max-width:1024px){
       .hero{
@@ -1015,6 +1037,63 @@
       }
     }
 
+
+
+    /* ===== AJUSTE DE LEITURA MOBILE ===== */
+    @media (max-width:1024px){
+      .hero__title{font-size:60px;max-width:430px;}
+      .hero__text{font-size:27px;line-height:1.12;max-width:430px;}
+      .btn{font-size:20px;min-height:66px;}
+      .sobre-title{font-size:58px;max-width:430px;}
+      .sobre-text{max-width:430px;}
+      .sobre-text p{font-size:25px;line-height:1.13;}
+      .servicos-title{font-size:44px;}
+      .servico-card p{font-size:18px;line-height:1.08;}
+      .cases-title,.depoimentos-title{font-size:44px;max-width:520px;line-height:1.02;}
+      .faq-item summary{font-size:20px;line-height:1.12;}
+      .faq-answer{font-size:18px;line-height:1.25;}
+      .cta-final__title{font-size:44px;}
+      .cta-final__text{font-size:19px;line-height:1.28;max-width:520px;}
+      .cta-final__btn{font-size:18px;}
+      .footer-title{font-size:20px;}
+      .footer-contato p{font-size:18px;}
+    }
+
+    @media (max-width:640px){
+      body{padding-bottom:92px;}
+      .hero__title{font-size:40px;max-width:340px;line-height:1;}
+      .hero__text{font-size:19px;line-height:1.18;max-width:340px;}
+      .btn{min-height:60px;font-size:18px;line-height:1.05;}
+      .sobre-title{font-size:40px;max-width:340px;}
+      .sobre-text{max-width:340px;}
+      .sobre-text p{font-size:18px;line-height:1.2;}
+      .cro-box{font-size:20px;}
+      .servicos-kicker{font-size:16px;}
+      .servicos-title{font-size:40px;line-height:1.02;}
+      .servico-card{min-height:310px;}
+      .servico-card h3{font-size:34px;line-height:1;}
+      .servico-card p{font-size:17px;line-height:1.13;max-width:310px;}
+      .cases-title,.depoimentos-title{font-size:38px;line-height:1.02;max-width:350px;}
+      .cases-kicker{font-size:14px;}
+      .depoimentos-grid{grid-template-columns:1fr;max-width:330px;margin-left:auto;margin-right:auto;}
+      .faq-title,.location-title{font-size:40px;}
+      .faq-item summary{font-size:18px;line-height:1.16;padding:18px 16px;}
+      .faq-answer{font-size:17px;line-height:1.25;padding:0 16px 18px;}
+      .cta-final__title{font-size:40px;}
+      .cta-final__text{font-size:18px;line-height:1.28;}
+      .cta-final__btn{font-size:17px;}
+      .footer-title{font-size:19px;}
+      .footer-contato p{font-size:17px;}
+      .whatsapp-chat{right:18px;bottom:18px;}
+      .whatsapp-chat__button{width:66px;height:66px;}
+      .whatsapp-chat__button svg{width:34px;height:34px;}
+      .whatsapp-chat__box{right:0;bottom:82px;width:342px;}
+      .whatsapp-chat__header strong{font-size:21px;}
+      .whatsapp-chat__header span{font-size:16px;}
+      .whatsapp-chat__question{font-size:18px;}
+      .whatsapp-chat__option{font-size:17px;min-height:54px;}
+    }
+
     @media (prefers-reduced-motion: reduce){
       html{scroll-behavior:auto}
       .mid-faixa__track,
@@ -1058,7 +1137,7 @@
           </p>
 
           <div class="hero__actions cascade d-3">
-            <a class="btn btn--gold" href="https://wa.me/554488145099" target="_blank">AGENDAR PELO WHATSAPP</a>
+            <a class="btn btn--gold" href="https://wa.me/5541991545744" target="_blank">AGENDAR PELO WHATSAPP</a>
             <a class="btn btn--outline" href="#cases">VER CASES DE RESULTADO</a>
           </div>
         </div>
@@ -1254,7 +1333,7 @@
         </div>
 
         <div class="cases-cta cascade d-6">
-          <a href="https://wa.me/554488145099" target="_blank" class="cases-cta__btn">
+          <a href="https://wa.me/5541991545744" target="_blank" class="cases-cta__btn">
             QUERO MEU TRATAMENTO PERSONALIZADO
           </a>
         </div>
@@ -1358,6 +1437,32 @@
         </div>
       </div>
     </section>
+
+
+    <div class="whatsapp-chat" id="whatsappChat" aria-live="polite">
+      <div class="whatsapp-chat__box" role="dialog" aria-label="Atendimento pelo WhatsApp">
+        <div class="whatsapp-chat__header">
+          <strong>Olá, tudo bem?</strong>
+          <span>Escolha o serviço ideal e fale direto com a clínica pelo WhatsApp.</span>
+          <button class="whatsapp-chat__close" type="button" aria-label="Fechar atendimento">×</button>
+        </div>
+        <div class="whatsapp-chat__body">
+          <p class="whatsapp-chat__question">Qual tratamento você procura?</p>
+          <div class="whatsapp-chat__options">
+            <a class="whatsapp-chat__option" target="_blank" rel="noopener noreferrer" href="https://wa.me/5541991545744?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20facetas%20em%20resina.">Facetas em Resina <small>›</small></a>
+            <a class="whatsapp-chat__option" target="_blank" rel="noopener noreferrer" href="https://wa.me/5541991545744?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20corre%C3%A7%C3%A3o%20gengival.">Correção Gengival <small>›</small></a>
+            <a class="whatsapp-chat__option" target="_blank" rel="noopener noreferrer" href="https://wa.me/5541991545744?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20clareamento%20dental.">Clareamento Dental <small>›</small></a>
+            <a class="whatsapp-chat__option" target="_blank" rel="noopener noreferrer" href="https://wa.me/5541991545744?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20implantes%20dent%C3%A1rios.">Implantes Dentários <small>›</small></a>
+            <a class="whatsapp-chat__option" target="_blank" rel="noopener noreferrer" href="https://wa.me/5541991545744?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20saber%20mais%20sobre%20placa%20de%20bruxismo.">Placa de Bruxismo <small>›</small></a>
+            <a class="whatsapp-chat__option" target="_blank" rel="noopener noreferrer" href="https://wa.me/5541991545744?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.">Não sei, quero avaliação <small>›</small></a>
+          </div>
+        </div>
+      </div>
+      <button class="whatsapp-chat__button" type="button" aria-label="Abrir atendimento pelo WhatsApp" aria-expanded="false">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.02 3C8.86 3 3.04 8.82 3.04 15.98c0 2.29.6 4.52 1.75 6.49L3 29l6.7-1.76a12.9 12.9 0 0 0 6.32 1.62h.01C23.18 28.86 29 23.04 29 15.88 29 8.82 23.18 3 16.02 3Zm0 23.67h-.01c-1.89 0-3.75-.51-5.37-1.46l-.39-.23-3.98 1.04 1.06-3.88-.25-.4a10.73 10.73 0 0 1-1.65-5.76c0-5.85 4.76-10.6 10.62-10.6 2.83 0 5.49 1.1 7.49 3.11a10.55 10.55 0 0 1 3.1 7.49c0 5.85-4.76 10.69-10.62 10.69Zm5.82-7.95c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1.01 1.25-.19.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.59-.95-.85-1.59-1.89-1.78-2.21-.19-.32-.02-.49.14-.65.15-.15.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.7-.98-2.34-.26-.62-.52-.53-.71-.54h-.61c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66 0 1.57 1.14 3.09 1.3 3.3.16.21 2.24 3.42 5.43 4.79.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.89-.77 2.16-1.52.27-.75.27-1.38.19-1.52-.08-.13-.29-.21-.61-.37Z"/></svg>
+      </button>
+    </div>
+
   </main>
 
   <script>
@@ -1376,6 +1481,31 @@
     });
 
     animatedSections.forEach(section => io.observe(section));
+
+    const whatsappChat = document.getElementById('whatsappChat');
+    const whatsappButton = whatsappChat?.querySelector('.whatsapp-chat__button');
+    const whatsappClose = whatsappChat?.querySelector('.whatsapp-chat__close');
+    const whatsappOptions = whatsappChat?.querySelectorAll('.whatsapp-chat__option');
+
+    function toggleWhatsappChat(forceState){
+      if(!whatsappChat || !whatsappButton) return;
+      const shouldOpen = typeof forceState === 'boolean' ? forceState : !whatsappChat.classList.contains('is-open');
+      whatsappChat.classList.toggle('is-open', shouldOpen);
+      whatsappButton.setAttribute('aria-expanded', String(shouldOpen));
+    }
+
+    whatsappButton?.addEventListener('click', () => toggleWhatsappChat());
+    whatsappClose?.addEventListener('click', () => toggleWhatsappChat(false));
+    whatsappOptions?.forEach(option => option.addEventListener('click', () => toggleWhatsappChat(false)));
+
+    document.addEventListener('click', (event) => {
+      if(!whatsappChat?.classList.contains('is-open')) return;
+      if(!whatsappChat.contains(event.target)) toggleWhatsappChat(false);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if(event.key === 'Escape') toggleWhatsappChat(false);
+    });
   </script>
 </body>
 </html>

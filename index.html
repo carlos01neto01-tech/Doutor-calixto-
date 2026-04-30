@@ -1412,6 +1412,45 @@
     @media (min-width:1025px) and (max-width:1280px){.hero__content--reformulado{grid-template-columns:.8fr 1.2fr;gap:28px}.case-card--primary{width:310px;height:470px}.case-card--secondary{left:330px;width:310px;height:470px}.hero__right{min-height:470px}.hero__title{font-size:46px}.servico-card h3{font-size:37px}}
     @media (max-width:390px){.hero__title{font-size:30px}.hero__text{font-size:12px}.btn{font-size:12.5px;min-height:45px}.stat-box strong{font-size:39px}.stat-box span{font-size:18px}.sobre-title{font-size:26px}.servicos-title{font-size:24px}.servico-card h3{font-size:25px}.servico-card p{font-size:12.5px}}
 
+  
+
+    /* ===== AJUSTE FINAL: SOBRE ALINHADO NA MESMA LINHA VISUAL DA PRIMEIRA SESSÃO ===== */
+    @media (min-width:1025px){
+      .hero{padding-bottom:62px !important;}
+      .mid-faixa-wrap{height:0 !important;}
+      .mid-faixa{top:48px !important;}
+      .sobre-section{
+        padding:158px 0 38px !important;
+        background:var(--bg) !important;
+      }
+      .sobre-grid{
+        width:min(100%, var(--container)) !important;
+        margin:0 auto !important;
+        padding:0 34px !important;
+        max-width:none !important;
+        display:grid !important;
+        grid-template-columns:.82fr 1.18fr !important;
+        gap:42px !important;
+        align-items:center !important;
+      }
+      .sobre-copy{
+        max-width:470px !important;
+        text-align:left !important;
+        justify-self:start !important;
+      }
+      .doctor-card{
+        width:430px !important;
+        justify-self:center !important;
+      }
+      .sobre-title{font-size:43px !important;}
+      .sobre-text p{font-size:19px !important;line-height:1.04 !important;}
+    }
+
+    @media (max-width:1024px){
+      .sobre-section{padding-top:96px !important;}
+      .sobre-grid{padding-left:14px !important;padding-right:14px !important;}
+    }
+
   </style>
 </head>
 <body>

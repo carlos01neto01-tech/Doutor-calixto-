@@ -562,6 +562,43 @@
       to{transform:translateX(calc(-50% - 9px))}
     }
 
+
+
+    /* ===== CASES REAIS COM SLIDER ANTES/DEPOIS ===== */
+    .cases-section{background:#232323;padding-bottom:96px;}
+    .cases-title{max-width:1320px;font-size:62px;line-height:.92;}
+    .before-after-wrap{width:100%;margin-top:48px;padding:0 28px;}
+    .before-after-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;max-width:1520px;margin:0 auto;}
+    .ba-card{position:relative;width:100%;aspect-ratio:2.06/1;border-radius:16px;overflow:hidden;background:#151515;box-shadow:0 18px 36px rgba(0,0,0,.22);user-select:none;touch-action:none;cursor:ew-resize;}
+    .ba-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none;}
+    .ba-card__after{z-index:1;}
+    .ba-card__before{z-index:2;clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0);}
+    .ba-card__line{position:absolute;z-index:3;top:0;bottom:0;left:var(--pos,50%);width:2px;background:rgba(255,255,255,.78);transform:translateX(-50%);pointer-events:none;}
+    .ba-card__handle{position:absolute;z-index:4;left:var(--pos,50%);top:50%;width:54px;height:54px;border-radius:999px;border:0;transform:translate(-50%,-50%);background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(0,0,0,.25);cursor:ew-resize;}
+    .ba-card__handle::before{content:"◀ ▶";font-size:13px;line-height:1;letter-spacing:-2px;transform:scaleX(.86);}
+    .ba-label{position:absolute;z-index:5;top:12px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.46);color:#fff;font-size:13px;font-weight:700;letter-spacing:.8px;opacity:.92;}
+    .ba-label--before{left:12px}.ba-label--after{right:12px}
+    .cases-buttons{display:grid;grid-template-columns:1fr 1fr;gap:22px;width:min(100%,860px);margin:64px auto 0;}
+    .cases-btn{min-height:78px;border-radius:13px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:24px;font-weight:700;}
+    .cases-btn--light{background:#dedede;color:var(--gold-dark);}
+    .cases-btn--gold{background:linear-gradient(90deg,#a17c3c 0%,#c7ab72 100%);color:#fff;}
+    .depoimentos-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center;margin-top:142px;}
+    .depoimentos-heading{margin-top:0;text-align:left;}
+    .depoimentos-title{margin:0;max-width:660px;font-size:56px;line-height:.96;}
+    .depoimentos-text{max-width:620px;margin-top:12px;color:#fff;font-size:23px;line-height:1.02;}
+    .depoimentos-points{display:flex;flex-direction:column;gap:18px;margin-top:32px;max-width:620px;}
+    .depo-point{min-height:78px;border-radius:999px;background:#dedede;color:var(--gold-dark);display:grid;grid-template-columns:86px 1fr;align-items:center;overflow:hidden;font-size:22px;font-weight:700;}
+    .depo-point__icon{width:72px;height:72px;border-radius:999px;background:var(--gold);color:#fff;display:flex;align-items:center;justify-content:center;font-size:45px;margin-left:0;line-height:1;}
+    .depoimentos-gallery{position:relative;overflow:hidden;width:calc(100% + 120px);margin-right:-120px;}
+    .depoimentos-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;padding:8px 120px 8px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    .depoimentos-track::-webkit-scrollbar{display:none}
+    .depo-card{flex:0 0 330px;height:520px;border-radius:28px;overflow:hidden;scroll-snap-align:start;box-shadow:0 18px 34px rgba(0,0,0,.24);}
+    .depo-card img{width:100%;height:100%;object-fit:cover;}
+    .cases-cta{margin-top:58px;}
+    .cases-cta__btn{width:min(100%,720px);min-height:78px;border-radius:12px;background:linear-gradient(90deg,#a17c3c 0%,#c7ab72 100%);text-transform:uppercase;}
+    @media (max-width:1024px){.cases-section{padding-bottom:72px}.cases-title{font-size:44px;max-width:760px;line-height:.98}.before-after-wrap{padding:0 18px;margin-top:34px}.before-after-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.ba-card{border-radius:14px}.ba-card__handle{width:46px;height:46px}.ba-label{font-size:11px;top:9px}.cases-buttons{grid-template-columns:1fr;gap:12px;margin-top:28px}.cases-btn{min-height:64px;font-size:18px;border-radius:12px}.depoimentos-layout{grid-template-columns:1fr;gap:32px;margin-top:72px;text-align:center}.depoimentos-heading{text-align:center}.depoimentos-title{font-size:44px;max-width:520px;margin:0 auto}.depoimentos-text{font-size:20px;max-width:560px;margin:12px auto 0;line-height:1.08}.depoimentos-points{max-width:520px;margin:28px auto 0;gap:12px}.depo-point{min-height:68px;grid-template-columns:74px 1fr;font-size:18px;text-align:center}.depo-point__icon{width:64px;height:64px;font-size:38px}.depoimentos-gallery{width:calc(100% + 44px);margin-left:-22px;margin-right:-22px}.depoimentos-track{gap:16px;padding:4px 22px}.depo-card{flex-basis:260px;height:410px;border-radius:24px}.cases-cta__btn{min-height:66px;font-size:17px}}
+    @media (max-width:640px){.cases-top-mark{margin-bottom:18px}.cases-title{font-size:29px!important;line-height:.98!important;max-width:360px!important;letter-spacing:-.4px}.cases-kicker{font-size:13px!important;letter-spacing:9px!important;margin-bottom:12px!important}.before-after-wrap{padding:0 18px;margin-top:28px}.before-after-grid{grid-template-columns:1fr;gap:12px}.ba-card{aspect-ratio:2.05/1;border-radius:12px}.ba-card__handle{width:42px;height:42px}.ba-card__handle::before{font-size:11px}.ba-label{font-size:10px;padding:5px 8px}.cases-buttons{width:100%;margin-top:18px;gap:10px}.cases-btn{min-height:56px;font-size:16px;border-radius:10px}.depoimentos-layout{margin-top:62px;gap:26px}.depoimentos-title{font-size:31px!important;line-height:1!important;max-width:340px!important}.depoimentos-text{font-size:15px;line-height:1.05;max-width:330px}.depoimentos-points{max-width:100%;gap:10px;margin-top:24px}.depo-point{min-height:50px;grid-template-columns:58px 1fr;font-size:14px;border-radius:999px}.depo-point__icon{width:50px;height:50px;font-size:30px}.depoimentos-gallery{width:calc(100% + 36px);margin-left:-18px;margin-right:-18px}.depoimentos-track{gap:14px;padding:0 18px}.depo-card{flex-basis:168px;height:268px;border-radius:18px}.cases-cta{margin-top:34px}.cases-cta__btn{width:100%;min-height:56px;font-size:14px;border-radius:10px;padding:0 14px}}
+
     /* ===== FAQ E LOCALIZAÇÃO ===== */
     .faq-location-section{
       background:var(--bg);
@@ -1522,73 +1559,23 @@
       </div>
     </section>
     <section class="cases-section animate-section content-auto" id="cases">
-      <div class="cases-top-mark" aria-hidden="true">
-        <span></span>
-      </div>
-
+      <div class="cases-top-mark" aria-hidden="true"><span></span></div>
       <div class="container">
         <div class="cases-heading">
           <span class="cases-kicker cascade d-1">CASES REAIS</span>
-          <h2 class="cases-title cascade d-2">
-            “Cada sorriso é <strong>único.</strong> Veja como tratamentos
-            planejados com precisão podem transformar
-            <strong>resultados reais</strong> — sem filtros, sem edições.”
-          </h2>
+          <h2 class="cases-title cascade d-2">“Cada sorriso é <strong>único.</strong> Veja como tratamentos planejados com precisão podem transformar <strong>resultados reais</strong> — sem filtros, sem edições.”</h2>
         </div>
       </div>
-
-      <div class="cases-carousel cascade d-3">
-        <div class="cases-carousel__fade cases-carousel__fade--left"></div>
-        <div class="cases-carousel__fade cases-carousel__fade--right"></div>
-
-        <div class="cases-track">
-          <article class="case-slide"><img src="assets/FOTO 1 ANTES E DEPOIS.webp" alt="Antes e depois 1" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 2 ANTES E DEPOIS.webp" alt="Antes e depois 2" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 3 ANTES E DEPOIS.webp" alt="Antes e depois 3" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 4 ANTES E DEPOIS.webp" alt="Antes e depois 4" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 5 ANTES E DEPOIS.webp" alt="Antes e depois 5" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 6 ANTES E DEPOIS.webp" alt="Antes e depois 6" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 7 ANTES E DEPOIS.webp" alt="Antes e depois 7" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 8 ANTES E DEPOIS.webp" alt="Antes e depois 8" loading="lazy" decoding="async"></article>
-
-          <article class="case-slide"><img src="assets/FOTO 1 ANTES E DEPOIS.webp" alt="Antes e depois 1" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 2 ANTES E DEPOIS.webp" alt="Antes e depois 2" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 3 ANTES E DEPOIS.webp" alt="Antes e depois 3" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 4 ANTES E DEPOIS.webp" alt="Antes e depois 4" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 5 ANTES E DEPOIS.webp" alt="Antes e depois 5" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 6 ANTES E DEPOIS.webp" alt="Antes e depois 6" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 7 ANTES E DEPOIS.webp" alt="Antes e depois 7" loading="lazy" decoding="async"></article>
-          <article class="case-slide"><img src="assets/FOTO 8 ANTES E DEPOIS.webp" alt="Antes e depois 8" loading="lazy" decoding="async"></article>
-        </div>
-      </div>
-
+      <div class="before-after-wrap cascade d-3" aria-label="Comparativo antes e depois dos tratamentos"><div class="before-after-grid">
+        <article class="ba-card" style="--pos:50%"><img class="ba-card__after" src="assets/DEPOIS 1.webp" alt="Depois do caso real 1" loading="lazy" decoding="async"><img class="ba-card__before" src="assets/ANTES 1.webp" alt="Antes do caso real 1" loading="lazy" decoding="async"><span class="ba-label ba-label--before">ANTES</span><span class="ba-label ba-label--after">DEPOIS</span><span class="ba-card__line"></span><button class="ba-card__handle" type="button" aria-label="Arraste para comparar antes e depois"></button></article>
+        <article class="ba-card" style="--pos:50%"><img class="ba-card__after" src="assets/DEPOIS 2.png" alt="Depois do caso real 2" loading="lazy" decoding="async"><img class="ba-card__before" src="assets/ANTES 2.webp" alt="Antes do caso real 2" loading="lazy" decoding="async"><span class="ba-label ba-label--before">ANTES</span><span class="ba-label ba-label--after">DEPOIS</span><span class="ba-card__line"></span><button class="ba-card__handle" type="button" aria-label="Arraste para comparar antes e depois"></button></article>
+        <article class="ba-card" style="--pos:50%"><img class="ba-card__after" src="assets/DEPOIS 3.webp" alt="Depois do caso real 3" loading="lazy" decoding="async"><img class="ba-card__before" src="assets/ANTES 3.webp" alt="Antes do caso real 3" loading="lazy" decoding="async"><span class="ba-label ba-label--before">ANTES</span><span class="ba-label ba-label--after">DEPOIS</span><span class="ba-card__line"></span><button class="ba-card__handle" type="button" aria-label="Arraste para comparar antes e depois"></button></article>
+        <article class="ba-card" style="--pos:50%"><img class="ba-card__after" src="assets/DEPOIS 4.webp" alt="Depois do caso real 4" loading="lazy" decoding="async"><img class="ba-card__before" src="assets/ANTES 4.webp" alt="Antes do caso real 4" loading="lazy" decoding="async"><span class="ba-label ba-label--before">ANTES</span><span class="ba-label ba-label--after">DEPOIS</span><span class="ba-card__line"></span><button class="ba-card__handle" type="button" aria-label="Arraste para comparar antes e depois"></button></article>
+      </div></div>
       <div class="container">
-        <div class="depoimentos-heading">
-          <span class="cases-kicker cascade d-4">DEPOIMENTOS</span>
-          <h2 class="depoimentos-title cascade d-5">
-            Quem já fez o <strong>tratamento</strong> aprova:
-          </h2>
-        </div>
-
-        <div class="depoimentos-grid">
-          <article class="depo-card cascade d-3">
-            <img src="assets/DEPOIMENTO 1.webp" alt="Depoimento 1" loading="lazy" decoding="async" />
-          </article>
-
-          <article class="depo-card cascade d-4">
-            <img src="assets/DEPOIMENTO 2.webp" alt="Depoimento 2" loading="lazy" decoding="async" />
-          </article>
-
-          <article class="depo-card cascade d-5">
-            <img src="assets/DEPOIMENTO 3.webp" alt="Depoimento 3" loading="lazy" decoding="async" />
-          </article>
-        </div>
-
-        <div class="cases-cta cascade d-6">
-          <a href="https://wa.me/5541991545744" target="_blank" class="cases-cta__btn">
-            QUERO MEU TRATAMENTO PERSONALIZADO
-          </a>
-        </div>
+        <div class="cases-buttons cascade d-4"><a class="cases-btn cases-btn--light" href="#cases">Ver todos os casos</a><a class="cases-btn cases-btn--gold" href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer">Quero um resultado assim →</a></div>
+        <div class="depoimentos-layout" id="depoimentos"><div class="depoimentos-copy"><div class="depoimentos-heading"><span class="cases-kicker cascade d-1">DEPOIMENTOS</span><h2 class="depoimentos-title cascade d-2">Quem já fez o aprova:</h2><p class="depoimentos-text cascade d-3">Pacientes que passaram pelo tratamento relatam mais segurança ao sorrir, melhora na autoestima e satisfação com o resultado final.</p></div><div class="depoimentos-points cascade d-4"><div class="depo-point"><span class="depo-point__icon">✓</span><span>Atendimento atencioso</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Processo bem explicado</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Resultado natural</span></div></div></div><div class="depoimentos-gallery cascade d-5" aria-label="Depoimentos de pacientes"><div class="depoimentos-track"><article class="depo-card"><img src="assets/DEPOIMENTO 1.webp" alt="Depoimento 1" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 2.webp" alt="Depoimento 2" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 3.webp" alt="Depoimento 3" loading="lazy" decoding="async"></article></div></div></div>
+        <div class="cases-cta cascade d-6"><a href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer" class="cases-cta__btn">QUERO MEU TRATAMENTO PERSONALIZADO</a></div>
       </div>
     </section>
 
@@ -1733,6 +1720,21 @@
     });
 
     animatedSections.forEach(section => io.observe(section));
+
+
+
+    const beforeAfterCards = document.querySelectorAll('.ba-card');
+    function updateBeforeAfter(card, clientX){
+      const rect = card.getBoundingClientRect();
+      const raw = ((clientX - rect.left) / rect.width) * 100;
+      const pos = Math.max(5, Math.min(95, raw));
+      card.style.setProperty('--pos', pos + '%');
+    }
+    beforeAfterCards.forEach((card) => {
+      card.addEventListener('pointerdown', (event) => {card.setPointerCapture?.(event.pointerId);updateBeforeAfter(card, event.clientX);});
+      card.addEventListener('pointermove', (event) => {if(event.buttons !== 1 && event.pointerType !== 'touch') return;updateBeforeAfter(card, event.clientX);});
+      card.addEventListener('click', (event) => updateBeforeAfter(card, event.clientX));
+    });
 
     const whatsappChat = document.getElementById('whatsappChat');
     const whatsappButton = whatsappChat?.querySelector('.whatsapp-chat__button');

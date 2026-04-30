@@ -1603,6 +1603,204 @@
       }
     }
 
+  
+
+    /* ===== CORREÇÃO DEFINITIVA MOBILE: PADRÃO DE TIPOGRAFIA E SEM SOBREPOSIÇÃO ===== */
+    :root{
+      --mobile-h1:34px;
+      --mobile-section-title:30px;
+      --mobile-card-title:27px;
+      --mobile-text:16px;
+      --mobile-small:13px;
+      --mobile-line-title:1.08;
+      --mobile-line-text:1.28;
+    }
+
+    @media (max-width:640px){
+      body{overflow-x:hidden !important;}
+      .container{padding-left:18px !important;padding-right:18px !important;}
+
+      /* TÍTULOS PRINCIPAIS: MESMO PADRÃO EM TODAS AS SEÇÕES */
+      .hero__title,
+      .sobre-title,
+      .why-title,
+      .servicos-title,
+      .cases-title,
+      .depoimentos-title,
+      .faq-title,
+      .location-title,
+      .cta-final__title{
+        font-size:var(--mobile-section-title) !important;
+        line-height:var(--mobile-line-title) !important;
+        letter-spacing:-.35px !important;
+        max-width:100% !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        text-align:center !important;
+      }
+
+      .hero__title{
+        font-size:var(--mobile-h1) !important;
+        max-width:360px !important;
+      }
+
+      /* DESCRIÇÕES: MESMO PADRÃO MOBILE */
+      .hero__text,
+      .sobre-text p,
+      .why-answer,
+      .servico-card p,
+      .cases-subtitle,
+      .depoimentos-text,
+      .faq-answer,
+      .cta-final__text,
+      .footer-contato p{
+        font-size:var(--mobile-text) !important;
+        line-height:var(--mobile-line-text) !important;
+        letter-spacing:0 !important;
+        max-width:360px !important;
+        margin-left:auto !important;
+        margin-right:auto !important;
+        text-align:center !important;
+      }
+
+      /* HERO */
+      .hero{padding-top:34px !important;padding-bottom:44px !important;}
+      .hero__content{gap:16px !important;}
+      .hero__right{gap:10px !important;margin-bottom:16px !important;}
+      .hero__text{margin-top:12px !important;}
+      .hero__pills{gap:7px !important;margin-top:14px !important;}
+      .hero__pills span{
+        min-height:28px !important;
+        font-size:12px !important;
+        line-height:1.1 !important;
+        padding:5px 10px !important;
+      }
+      .hero__actions{gap:12px !important;margin-top:18px !important;}
+      .btn{min-height:58px !important;font-size:15px !important;line-height:1.1 !important;}
+      .stats{gap:12px !important;margin-top:28px !important;}
+      .stat-box{min-height:138px !important;padding:18px 14px !important;}
+      .stat-box strong{font-size:50px !important;line-height:.95 !important;}
+      .stat-box span{font-size:20px !important;line-height:1.1 !important;margin-top:10px !important;}
+
+      /* SOBRE */
+      .sobre-section{padding-top:92px !important;padding-bottom:36px !important;}
+      .sobre-grid{gap:24px !important;}
+      .doctor-card{max-width:252px !important;}
+      .sobre-title{margin-bottom:18px !important;}
+      .sobre-text p{margin-bottom:18px !important;}
+      .cro-box{min-height:54px !important;font-size:18px !important;line-height:1.1 !important;margin-top:12px !important;}
+
+      /* POR QUE */
+      .why-section{padding:34px 0 58px !important;}
+      .why-title{margin-bottom:28px !important;}
+      .why-list{gap:10px !important;}
+      .why-item summary{
+        min-height:42px !important;
+        font-size:13px !important;
+        line-height:1.15 !important;
+        padding:0 16px !important;
+      }
+      .why-answer{padding:0 16px 18px !important;}
+
+      /* SERVIÇOS: SEM SOBREPOSIÇÃO */
+      .servicos-section{padding-top:58px !important;padding-bottom:76px !important;}
+      .servicos-heading{margin-bottom:30px !important;}
+      .servicos-kicker,
+      .cases-kicker{
+        font-size:12px !important;
+        line-height:1 !important;
+        letter-spacing:8px !important;
+        margin-bottom:10px !important;
+      }
+      .servicos-title{margin-bottom:0 !important;}
+      .servicos-grid{
+        grid-template-columns:1fr !important;
+        gap:18px !important;
+        width:100% !important;
+      }
+      .servico-card,
+      .servico-card:nth-child(1),
+      .servico-card:nth-child(2),
+      .servico-card:nth-child(3),
+      .servico-card:nth-child(4),
+      .servico-card:nth-child(5){
+        grid-column:auto !important;
+        width:100% !important;
+        min-height:auto !important;
+        height:auto !important;
+        padding:32px 20px 34px !important;
+        display:flex !important;
+        flex-direction:column !important;
+        align-items:center !important;
+        justify-content:flex-start !important;
+        overflow:visible !important;
+        gap:0 !important;
+      }
+      .servico-card h3{
+        font-size:var(--mobile-card-title) !important;
+        line-height:1.1 !important;
+        margin:0 0 18px !important;
+        padding:0 !important;
+        white-space:nowrap !important;
+        max-width:100% !important;
+        text-align:center !important;
+      }
+      .servico-card p{
+        margin:0 auto !important;
+        max-width:330px !important;
+        display:block !important;
+        position:static !important;
+      }
+
+      /* CASES: IMAGEM INTEIRA + CÍRCULO MENOR */
+      .cases-section{padding-bottom:64px !important;}
+      .cases-title{max-width:360px !important;margin-bottom:0 !important;}
+      .before-after-wrap{padding:0 18px !important;margin-top:28px !important;}
+      .before-after-grid{grid-template-columns:1fr !important;gap:14px !important;}
+      .ba-card{aspect-ratio:302/150 !important;border-radius:12px !important;background:#151515 !important;}
+      .ba-card img{object-fit:contain !important;object-position:center !important;}
+      .ba-card__handle{width:26px !important;height:26px !important;}
+      .ba-card__handle::before{font-size:7px !important;letter-spacing:-1px !important;}
+      .ba-label{font-size:9px !important;padding:4px 7px !important;}
+      .cases-buttons{gap:11px !important;margin-top:18px !important;}
+      .cases-btn{min-height:56px !important;font-size:15px !important;line-height:1.12 !important;}
+
+      /* DEPOIMENTOS */
+      .depoimentos-layout{margin-top:62px !important;gap:28px !important;text-align:center !important;}
+      .depoimentos-title{margin-bottom:12px !important;}
+      .depoimentos-text{margin-top:0 !important;}
+      .depoimentos-points{gap:12px !important;margin-top:24px !important;}
+      .depo-point{min-height:54px !important;grid-template-columns:58px 1fr !important;font-size:15px !important;line-height:1.1 !important;}
+      .depo-point__icon{width:50px !important;height:50px !important;font-size:28px !important;}
+      .depoimentos-gallery{width:calc(100% + 36px) !important;margin-left:-18px !important;margin-right:-18px !important;}
+      .depoimentos-track{gap:14px !important;padding:0 18px !important;}
+      .depo-card{flex-basis:168px !important;height:268px !important;}
+      .cases-cta__btn{font-size:15px !important;line-height:1.16 !important;min-height:58px !important;}
+
+      /* FAQ, MAPA, CTA E RODAPÉ */
+      .faq-location-section{padding:58px 0 72px !important;}
+      .faq-title,.location-title,.cta-final__title{margin-bottom:22px !important;}
+      .faq-item summary{font-size:15px !important;line-height:1.18 !important;padding:17px 16px !important;}
+      .faq-answer{font-size:15px !important;text-align:left !important;max-width:100% !important;}
+      .cta-final{padding:64px 0 58px !important;}
+      .cta-final__text{margin-top:0 !important;margin-bottom:24px !important;}
+      .cta-final__btn{min-height:58px !important;font-size:15px !important;}
+      .footer-contato{padding:52px 0 62px !important;}
+      .footer-title{font-size:18px !important;line-height:1.15 !important;margin-bottom:16px !important;}
+      .footer-contato p{font-size:16px !important;line-height:1.28 !important;max-width:360px !important;}
+    }
+
+    @media (max-width:390px){
+      :root{
+        --mobile-h1:32px;
+        --mobile-section-title:28px;
+        --mobile-card-title:25px;
+        --mobile-text:15px;
+      }
+      .servico-card h3{font-size:24px !important;}
+      .servico-card p{font-size:15px !important;}
+    }
+
   </style>
 </head>
 <body>

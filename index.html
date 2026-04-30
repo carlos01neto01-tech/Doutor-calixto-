@@ -1488,6 +1488,121 @@
       .sobre-grid{padding-left:14px !important;padding-right:14px !important;}
     }
 
+
+    /* ===== AJUSTE FINAL: PADRÃO DOS TÍTULOS + ANTES/DEPOIS COMPLETO ===== */
+    :root{
+      --section-title-desktop:47px;
+      --section-title-tablet:32px;
+      --section-title-mobile:25px;
+    }
+
+    .cases-title,
+    .depoimentos-title,
+    .faq-title,
+    .location-title,
+    .cta-final__title{
+      font-size:var(--section-title-desktop) !important;
+      line-height:1 !important;
+      letter-spacing:-.7px !important;
+    }
+
+    .cases-title{
+      max-width:1040px !important;
+    }
+
+    .depoimentos-title{
+      max-width:560px !important;
+    }
+
+    .before-after-grid{
+      grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      gap:18px !important;
+    }
+
+    .ba-card{
+      aspect-ratio:302 / 150 !important;
+      background:#171717 !important;
+    }
+
+    .ba-card img{
+      width:100% !important;
+      height:100% !important;
+      object-fit:contain !important;
+      object-position:center center !important;
+    }
+
+    .ba-card__handle{
+      width:38px !important;
+      height:38px !important;
+      box-shadow:0 6px 14px rgba(0,0,0,.22) !important;
+    }
+
+    .ba-card__handle::before{
+      font-size:10px !important;
+      letter-spacing:-2px !important;
+    }
+
+    @media (max-width:1024px){
+      .cases-title,
+      .depoimentos-title,
+      .faq-title,
+      .location-title,
+      .cta-final__title{
+        font-size:var(--section-title-tablet) !important;
+        line-height:1.02 !important;
+        max-width:620px !important;
+      }
+
+      .before-after-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+        gap:14px !important;
+      }
+
+      .ba-card__handle{
+        width:34px !important;
+        height:34px !important;
+      }
+
+      .ba-card__handle::before{
+        font-size:9px !important;
+      }
+    }
+
+    @media (max-width:640px){
+      .cases-title,
+      .depoimentos-title,
+      .faq-title,
+      .location-title,
+      .cta-final__title{
+        font-size:var(--section-title-mobile) !important;
+        line-height:1.04 !important;
+        max-width:340px !important;
+        letter-spacing:-.35px !important;
+      }
+
+      .before-after-wrap{
+        padding:0 18px !important;
+      }
+
+      .before-after-grid{
+        grid-template-columns:1fr !important;
+        gap:12px !important;
+      }
+
+      .ba-card{
+        aspect-ratio:302 / 150 !important;
+      }
+
+      .ba-card__handle{
+        width:30px !important;
+        height:30px !important;
+      }
+
+      .ba-card__handle::before{
+        font-size:8px !important;
+      }
+    }
+
   </style>
 </head>
 <body>

@@ -2127,6 +2127,104 @@
       .depoimentos-track{animation:none !important;}
     }
 
+  
+
+    /* ===== CORREÇÃO DEFINITIVA MOBILE: CARROSSEL DEPOIMENTOS NÃO FICA CORTADO/SEM LOOP ===== */
+    @keyframes depoimentosMobileLoopFinal{
+      from{transform:translate3d(0,0,0);}
+      to{transform:translate3d(calc(-50% - 7px),0,0);}
+    }
+
+    @media (max-width:640px){
+      .depoimentos-layout{
+        display:flex !important;
+        flex-direction:column !important;
+        gap:30px !important;
+        overflow:hidden !important;
+      }
+
+      .depoimentos-copy{
+        order:1 !important;
+        width:100% !important;
+        position:relative !important;
+        z-index:3 !important;
+      }
+
+      .depoimentos-gallery{
+        order:2 !important;
+        width:100vw !important;
+        max-width:100vw !important;
+        margin-left:calc(50% - 50vw) !important;
+        margin-right:calc(50% - 50vw) !important;
+        margin-top:6px !important;
+        overflow:hidden !important;
+        position:relative !important;
+        z-index:1 !important;
+        padding:0 !important;
+      }
+
+      .depoimentos-gallery::before,
+      .depoimentos-gallery::after{
+        content:"" !important;
+        position:absolute !important;
+        top:0 !important;
+        bottom:0 !important;
+        width:46px !important;
+        z-index:5 !important;
+        pointer-events:none !important;
+      }
+      .depoimentos-gallery::before{left:0 !important;background:linear-gradient(90deg,#222 0%,rgba(34,34,34,0) 100%) !important;}
+      .depoimentos-gallery::after{right:0 !important;background:linear-gradient(270deg,#222 0%,rgba(34,34,34,0) 100%) !important;}
+
+      .depoimentos-track{
+        display:flex !important;
+        align-items:stretch !important;
+        gap:14px !important;
+        width:max-content !important;
+        min-width:max-content !important;
+        overflow:visible !important;
+        padding:8px 14px !important;
+        scroll-snap-type:none !important;
+        scrollbar-width:none !important;
+        transform:translate3d(0,0,0);
+        animation:depoimentosMobileLoopFinal 18s linear infinite !important;
+        will-change:transform !important;
+      }
+
+      .depoimentos-track::-webkit-scrollbar{display:none !important;}
+
+      .depo-card{
+        flex:0 0 clamp(118px, 30vw, 152px) !important;
+        width:clamp(118px, 30vw, 152px) !important;
+        height:clamp(190px, 48vw, 244px) !important;
+        border-radius:16px !important;
+        overflow:hidden !important;
+        scroll-snap-align:none !important;
+      }
+
+      .depo-card img{
+        width:100% !important;
+        height:100% !important;
+        object-fit:cover !important;
+        display:block !important;
+      }
+
+      .cases-cta{
+        margin-top:34px !important;
+        position:relative !important;
+        z-index:3 !important;
+      }
+    }
+
+    @media (max-width:390px){
+      .depo-card{
+        flex-basis:clamp(112px, 30vw, 140px) !important;
+        width:clamp(112px, 30vw, 140px) !important;
+        height:clamp(180px, 48vw, 224px) !important;
+      }
+      .depoimentos-track{animation-duration:17s !important;}
+    }
+
   </style>
 </head>
 <body>

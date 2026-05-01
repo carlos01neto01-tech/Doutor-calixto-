@@ -1836,6 +1836,119 @@
       .why-item summary{font-size:14px !important;}
       .faq-item summary{font-size:16px !important;}
     }
+  
+
+    /* ===== AJUSTE FINAL: FONTES MOBILE MAIORES + FOTO DO DOUTOR + DEPOIMENTOS CONTÍNUO ===== */
+    @keyframes depoimentosContinuo{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(-50% - 12px))}
+    }
+
+    .depoimentos-gallery{
+      overflow:hidden !important;
+      position:relative !important;
+      width:100vw !important;
+      margin-left:calc(50% - 50vw) !important;
+      margin-right:calc(50% - 50vw) !important;
+    }
+    .depoimentos-gallery::before,
+    .depoimentos-gallery::after{
+      content:"";
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:120px;
+      z-index:5;
+      pointer-events:none;
+    }
+    .depoimentos-gallery::before{left:0;background:linear-gradient(90deg, #222 0%, rgba(34,34,34,0) 100%);}
+    .depoimentos-gallery::after{right:0;background:linear-gradient(270deg, #222 0%, rgba(34,34,34,0) 100%);}
+    .depoimentos-track{
+      width:max-content !important;
+      overflow:visible !important;
+      scroll-snap-type:none !important;
+      scrollbar-width:none !important;
+      animation:depoimentosContinuo 24s linear infinite !important;
+      will-change:transform;
+      padding:8px 0 !important;
+    }
+    .depoimentos-track:hover{animation-play-state:paused !important;}
+
+    @media (max-width:1024px){
+      :root{
+        --mobile-h1:38px !important;
+        --mobile-section-title:36px !important;
+        --mobile-card-title:31px !important;
+        --mobile-text:18px !important;
+        --mobile-small:15px !important;
+      }
+      .hero__title{font-size:var(--mobile-h1) !important;}
+      .hero__text,
+      .sobre-text p,
+      .why-answer,
+      .servico-card p,
+      .depoimentos-text,
+      .faq-answer,
+      .cta-final__text,
+      .footer-contato p{font-size:var(--mobile-text) !important;line-height:1.28 !important;}
+      .sobre-title,
+      .why-title,
+      .servicos-title,
+      .cases-title,
+      .depoimentos-title,
+      .faq-title,
+      .location-title,
+      .cta-final__title{font-size:var(--mobile-section-title) !important;line-height:1.08 !important;}
+      .servico-card h3{font-size:var(--mobile-card-title) !important;line-height:1.05 !important;}
+      .hero__pills span,
+      .why-item summary,
+      .faq-item summary{font-size:var(--mobile-small) !important;line-height:1.18 !important;}
+      .doctor-card{max-width:330px !important;border-radius:18px !important;}
+      .sobre-grid{gap:34px !important;}
+      .depoimentos-gallery::before,
+      .depoimentos-gallery::after{width:64px;}
+      .depoimentos-track{gap:16px !important;animation-duration:22s !important;}
+      .depo-card{flex:0 0 210px !important;height:336px !important;border-radius:20px !important;}
+    }
+
+    @media (max-width:640px){
+      :root{
+        --mobile-h1:39px !important;
+        --mobile-section-title:37px !important;
+        --mobile-card-title:32px !important;
+        --mobile-text:18px !important;
+        --mobile-small:15px !important;
+      }
+      .hero__text{max-width:360px !important;}
+      .sobre-text{max-width:360px !important;}
+      .servico-card{padding:34px 20px 36px !important;}
+      .servico-card p{max-width:345px !important;}
+      .doctor-card{max-width:320px !important;}
+      .depoimentos-gallery{margin-top:8px !important;}
+      .depoimentos-gallery::before,
+      .depoimentos-gallery::after{width:44px;}
+      .depoimentos-track{gap:14px !important;animation-duration:20s !important;}
+      .depo-card{flex:0 0 190px !important;height:304px !important;border-radius:18px !important;}
+      .depo-point{font-size:17px !important;min-height:58px !important;}
+      .depo-point__icon{width:54px !important;height:54px !important;font-size:30px !important;}
+    }
+
+    @media (max-width:390px){
+      :root{
+        --mobile-h1:37px !important;
+        --mobile-section-title:35px !important;
+        --mobile-card-title:30px !important;
+        --mobile-text:17px !important;
+        --mobile-small:14px !important;
+      }
+      .doctor-card{max-width:300px !important;}
+      .depo-card{flex-basis:178px !important;height:285px !important;}
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .depoimentos-track{animation:none !important;}
+    }
+
   </style>
 </head>
 <body>
@@ -1922,7 +2035,7 @@
       </div></div>
       <div class="container">
         <div class="cases-buttons cascade d-4"><a class="cases-btn cases-btn--light" href="#cases">Ver todos os casos</a><a class="cases-btn cases-btn--gold" href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer">Quero um resultado assim →</a></div>
-        <div class="depoimentos-layout" id="depoimentos"><div class="depoimentos-copy"><div class="depoimentos-heading"><span class="cases-kicker cascade d-1">DEPOIMENTOS</span><h2 class="depoimentos-title cascade d-2">Quem já fez o aprova:</h2><p class="depoimentos-text cascade d-3">Pacientes que passaram pelo tratamento relatam mais segurança ao sorrir, melhora na autoestima e satisfação com o resultado final.</p></div><div class="depoimentos-points cascade d-4"><div class="depo-point"><span class="depo-point__icon">✓</span><span>Atendimento atencioso</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Processo bem explicado</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Resultado natural</span></div></div></div><div class="depoimentos-gallery cascade d-5" aria-label="Depoimentos de pacientes"><div class="depoimentos-track"><article class="depo-card"><img src="assets/DEPOIMENTO 1.webp" alt="Depoimento 1" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 2.webp" alt="Depoimento 2" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 3.webp" alt="Depoimento 3" loading="lazy" decoding="async"></article></div></div></div>
+        <div class="depoimentos-layout" id="depoimentos"><div class="depoimentos-copy"><div class="depoimentos-heading"><span class="cases-kicker cascade d-1">DEPOIMENTOS</span><h2 class="depoimentos-title cascade d-2">Quem já fez o aprova:</h2><p class="depoimentos-text cascade d-3">Pacientes que passaram pelo tratamento relatam mais segurança ao sorrir, melhora na autoestima e satisfação com o resultado final.</p></div><div class="depoimentos-points cascade d-4"><div class="depo-point"><span class="depo-point__icon">✓</span><span>Atendimento atencioso</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Processo bem explicado</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Resultado natural</span></div></div></div><div class="depoimentos-gallery cascade d-5" aria-label="Depoimentos de pacientes"><div class="depoimentos-track"><article class="depo-card"><img src="assets/DEPOIMENTO 1.webp" alt="Depoimento 1" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 2.webp" alt="Depoimento 2" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 3.webp" alt="Depoimento 3" loading="lazy" decoding="async"></article><article class="depo-card" aria-hidden="true"><img src="assets/DEPOIMENTO 1.webp" alt="" loading="lazy" decoding="async"></article><article class="depo-card" aria-hidden="true"><img src="assets/DEPOIMENTO 2.webp" alt="" loading="lazy" decoding="async"></article><article class="depo-card" aria-hidden="true"><img src="assets/DEPOIMENTO 3.webp" alt="" loading="lazy" decoding="async"></article></div></div></div>
         <div class="cases-cta cascade d-6"><a href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer" class="cases-cta__btn">QUERO MEU TRATAMENTO PERSONALIZADO</a></div>
       </div>
     </section>

@@ -2005,6 +2005,128 @@
         min-height:60px !important;
       }
     }
+
+
+    /* ===== CORREÇÃO: DEPOIMENTOS DESKTOP À ESQUERDA + CARROSSEL CONTÍNUO MOBILE ===== */
+    @keyframes depoimentosContinuoDesktopCorrigido{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(-50% - 12px))}
+    }
+    @keyframes depoimentosContinuoTabletCorrigido{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(-50% - 8px))}
+    }
+    @keyframes depoimentosContinuoMobileCorrigido{
+      from{transform:translateX(0)}
+      to{transform:translateX(calc(-50% - 7px))}
+    }
+
+    /* Desktop: carrossel fica na esquerda da seção, texto na direita */
+    @media (min-width:1025px){
+      .depoimentos-layout{
+        display:grid !important;
+        grid-template-columns:1.06fr .94fr !important;
+        gap:64px !important;
+        align-items:center !important;
+        margin-top:128px !important;
+      }
+      .depoimentos-gallery{
+        grid-column:1 !important;
+        grid-row:1 !important;
+        width:100% !important;
+        max-width:660px !important;
+        margin:0 !important;
+        justify-self:start !important;
+        overflow:hidden !important;
+        position:relative !important;
+        z-index:1 !important;
+      }
+      .depoimentos-copy{
+        grid-column:2 !important;
+        grid-row:1 !important;
+        position:relative !important;
+        z-index:2 !important;
+        max-width:620px !important;
+      }
+      .depoimentos-heading{
+        text-align:left !important;
+      }
+      .depoimentos-title,
+      .depoimentos-text{
+        margin-left:0 !important;
+        margin-right:0 !important;
+        text-align:left !important;
+      }
+      .depoimentos-gallery::before,
+      .depoimentos-gallery::after{
+        width:86px !important;
+      }
+      .depoimentos-track{
+        display:flex !important;
+        width:max-content !important;
+        gap:24px !important;
+        padding:8px 0 !important;
+        overflow:visible !important;
+        scroll-snap-type:none !important;
+        animation:depoimentosContinuoDesktopCorrigido 24s linear infinite !important;
+        will-change:transform !important;
+      }
+      .depo-card{
+        flex:0 0 285px !important;
+        height:450px !important;
+      }
+    }
+
+    /* Tablet/mobile: volta empilhado e mantém o carrossel contínuo em largura total */
+    @media (max-width:1024px){
+      .depoimentos-layout{
+        grid-template-columns:1fr !important;
+      }
+      .depoimentos-copy{
+        order:1 !important;
+      }
+      .depoimentos-gallery{
+        order:2 !important;
+        width:100vw !important;
+        max-width:none !important;
+        margin-left:calc(50% - 50vw) !important;
+        margin-right:calc(50% - 50vw) !important;
+        overflow:hidden !important;
+        position:relative !important;
+      }
+      .depoimentos-track{
+        display:flex !important;
+        width:max-content !important;
+        overflow:visible !important;
+        scroll-snap-type:none !important;
+        animation:depoimentosContinuoTabletCorrigido 22s linear infinite !important;
+        will-change:transform !important;
+      }
+    }
+
+    @media (max-width:640px){
+      .depoimentos-gallery{
+        margin-top:14px !important;
+      }
+      .depoimentos-track{
+        gap:14px !important;
+        padding:8px 0 !important;
+        animation:depoimentosContinuoMobileCorrigido 18s linear infinite !important;
+      }
+      .depo-card{
+        flex:0 0 190px !important;
+        height:304px !important;
+      }
+      .depoimentos-gallery::before,
+      .depoimentos-gallery::after{
+        width:42px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .depoimentos-track{animation:none !important;}
+    }
+
   </style>
 </head>
 <body>

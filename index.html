@@ -1801,6 +1801,41 @@
       .servico-card p{font-size:15px !important;}
     }
 
+
+    /* ===== AJUSTE SOLICITADO: MOBILE COM FONTES MAIORES SEM PERDER RESPONSIVIDADE ===== */
+    @media (max-width:640px){
+      :root{
+        --mobile-h1:40px !important;
+        --mobile-section-title:36px !important;
+        --mobile-card-title:32px !important;
+        --mobile-text:18px !important;
+        --mobile-small:14px !important;
+        --mobile-line-title:1.08 !important;
+        --mobile-line-text:1.32 !important;
+      }
+      .hero__title{font-size:var(--mobile-h1) !important;max-width:390px !important;}
+      .hero__text,.sobre-text p,.why-answer,.servico-card p,.cases-subtitle,.depoimentos-text,.faq-answer,.cta-final__text,.footer-contato p{font-size:var(--mobile-text) !important;line-height:var(--mobile-line-text) !important;max-width:390px !important;}
+      .sobre-title,.why-title,.servicos-title,.cases-title,.depoimentos-title,.faq-title,.location-title,.cta-final__title{font-size:var(--mobile-section-title) !important;line-height:var(--mobile-line-title) !important;max-width:390px !important;}
+      .hero__pills span{font-size:14px !important;min-height:31px !important;}
+      .btn,.cases-btn,.cta-final__btn,.cases-cta__btn{font-size:17px !important;min-height:62px !important;}
+      .stat-box strong{font-size:58px !important;}
+      .stat-box span{font-size:23px !important;}
+      .cro-box{font-size:21px !important;min-height:60px !important;}
+      .why-item summary{font-size:15.5px !important;min-height:46px !important;line-height:1.2 !important;}
+      .servico-card{padding:36px 20px 38px !important;}
+      .servico-card h3{font-size:var(--mobile-card-title) !important;line-height:1.08 !important;margin-bottom:22px !important;}
+      .servico-card p{max-width:360px !important;}
+      .depo-point{font-size:17px !important;min-height:58px !important;}
+      .faq-item summary{font-size:17px !important;line-height:1.22 !important;}
+      .footer-title{font-size:20px !important;}
+    }
+    @media (max-width:390px){
+      :root{--mobile-h1:37px !important;--mobile-section-title:34px !important;--mobile-card-title:29px !important;--mobile-text:17px !important;}
+      .hero__pills span{font-size:13px !important;}
+      .btn,.cases-btn,.cta-final__btn,.cases-cta__btn{font-size:16px !important;}
+      .why-item summary{font-size:14px !important;}
+      .faq-item summary{font-size:16px !important;}
+    }
   </style>
 </head>
 <body>

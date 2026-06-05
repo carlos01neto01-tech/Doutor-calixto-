@@ -2225,6 +2225,100 @@
       .depoimentos-track{animation-duration:17s !important;}
     }
 
+
+    /* ===== AJUSTES SOLICITADOS - DR CALIXTO ===== */
+    .stats{
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      max-width:940px !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    .doctor-side{
+      width:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+    }
+
+    .doctor-side .doctor-card{
+      width:100%;
+    }
+
+    .cro-box--photo{
+      width:100% !important;
+      max-width:350px !important;
+      min-height:52px !important;
+      margin-top:0 !important;
+      background:rgba(218,218,218,.58);
+      font-weight:700;
+      letter-spacing:.4px;
+    }
+
+    .btn--with-icon,
+    .cases-btn--with-icon,
+    .cases-cta__btn--with-icon,
+    .cta-final__btn--with-icon{
+      gap:10px;
+    }
+
+    .whatsapp-btn-icon{
+      width:23px;
+      height:23px;
+      object-fit:contain;
+      flex:0 0 23px;
+      display:inline-block;
+    }
+
+    .btn--outline .whatsapp-btn-icon{
+      filter:brightness(0) saturate(100%) invert(43%) sepia(42%) saturate(584%) hue-rotate(5deg) brightness(91%) contrast(88%);
+    }
+
+    @media (max-width:1024px){
+      .stats{
+        grid-template-columns:1fr !important;
+        max-width:none !important;
+      }
+
+      .doctor-side{
+        max-width:252px;
+      }
+
+      .doctor-side .doctor-card{
+        max-width:252px !important;
+      }
+
+      .cro-box--photo{
+        max-width:252px !important;
+        min-height:42px !important;
+        font-size:16px !important;
+      }
+
+      .whatsapp-btn-icon{
+        width:20px;
+        height:20px;
+        flex-basis:20px;
+      }
+    }
+
+    @media (max-width:640px){
+      .doctor-side{
+        max-width:100% !important;
+        width:100% !important;
+      }
+
+      .doctor-side .doctor-card{
+        max-width:252px !important;
+      }
+
+      .cro-box--photo{
+        max-width:252px !important;
+        min-height:44px !important;
+        font-size:17px !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2241,8 +2335,8 @@
             <span>Resultados reais, sem filtros</span>
           </div>
           <div class="hero__actions cascade d-4">
-            <a class="btn btn--gold" href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer">Agendar pelo Whatsapp</a>
-            <a class="btn btn--outline" href="#cases">Ver cases de Resultado</a>
+            <a class="btn btn--gold btn--with-icon" href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer"><img class="whatsapp-btn-icon" src="assets/whatsapp-icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /><span>Agendar pelo Whatsapp</span></a>
+            <a class="btn btn--outline" href="#cases">Veja sorrisos transformados</a>
           </div>
         </div>
         <div class="hero__right">
@@ -2253,7 +2347,6 @@
       <div class="container stats">
         <article class="stat-box cascade d-3"><strong>+13</strong><span>Anos de<br />Experiência</span></article>
         <article class="stat-box cascade d-4"><strong>+1000</strong><span>Casos<br />Transformados</span></article>
-        <article class="stat-box cascade d-5"><strong>98%</strong><span>Satisfação dos<br />Pacientes</span></article>
       </div>
     </section>
     <div class="mid-faixa-wrap" aria-hidden="true"><div class="mid-faixa"><div class="mid-faixa__track">
@@ -2268,9 +2361,11 @@
             <p> É especialista em Implantodontia e Periodontia, com foco em estética dental. Seu trabalho une rigor técnico e harmonia facial para devolver proporção, equilíbrio e expressão ao sorriso.</p>
             <p>Cada caso é único. O planejamento individualizado orienta decisões precisas — é isso que transforma um bom resultado em extraordinário.</p>
           </div>
-          <div class="cro-box cascade d-3">CRO 23638</div>
         </div>
-        <div class="doctor-card cascade d-2"><img src="assets/IIMAGEM.webp" alt="Dr. Eduardo Calixto" loading="eager" decoding="async" /></div>
+        <div class="doctor-side cascade d-2">
+          <div class="doctor-card"><img src="assets/IIMAGEM.webp" alt="Dr. Eduardo Calixto" loading="eager" decoding="async" /></div>
+          <div class="cro-box cro-box--photo">CRO 23638</div>
+        </div>
       </div>
     </section>
     <section class="why-section animate-section content-auto" id="porque-tratar">
@@ -2311,9 +2406,9 @@
         <article class="ba-card" style="--pos:50%"><img class="ba-card__after" src="assets/DEPOIS 4.webp" alt="Depois do caso real 4" loading="lazy" decoding="async"><img class="ba-card__before" src="assets/ANTES 4.webp" alt="Antes do caso real 4" loading="lazy" decoding="async"><span class="ba-label ba-label--before">ANTES</span><span class="ba-label ba-label--after">DEPOIS</span><span class="ba-card__line"></span><button class="ba-card__handle" type="button" aria-label="Arraste para comparar antes e depois"></button></article>
       </div></div>
       <div class="container">
-        <div class="cases-buttons cascade d-4"><a class="cases-btn cases-btn--light" href="#cases">Ver todos os casos</a><a class="cases-btn cases-btn--gold" href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer">Quero um resultado assim →</a></div>
+        <div class="cases-buttons cascade d-4"><a class="cases-btn cases-btn--light" href="#cases">Ver todos os casos</a><a class="cases-btn cases-btn--gold cases-btn--with-icon" href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer"><img class="whatsapp-btn-icon" src="assets/whatsapp-icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /><span>Quero um resultado assim →</span></a></div>
         <div class="depoimentos-layout" id="depoimentos"><div class="depoimentos-copy"><div class="depoimentos-heading"><span class="cases-kicker cascade d-1">DEPOIMENTOS</span><h2 class="depoimentos-title cascade d-2">Quem já fez o aprova:</h2><p class="depoimentos-text cascade d-3">Pacientes que passaram pelo tratamento relatam mais segurança ao sorrir, melhora na autoestima e satisfação com o resultado final.</p></div><div class="depoimentos-points cascade d-4"><div class="depo-point"><span class="depo-point__icon">✓</span><span>Atendimento atencioso</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Processo bem explicado</span></div><div class="depo-point"><span class="depo-point__icon">✓</span><span>Resultado natural</span></div></div></div><div class="depoimentos-gallery cascade d-5" aria-label="Depoimentos de pacientes"><div class="depoimentos-track"><article class="depo-card"><img src="assets/DEPOIMENTO 1.webp" alt="Depoimento 1" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 2.webp" alt="Depoimento 2" loading="lazy" decoding="async"></article><article class="depo-card"><img src="assets/DEPOIMENTO 3.webp" alt="Depoimento 3" loading="lazy" decoding="async"></article><article class="depo-card" aria-hidden="true"><img src="assets/DEPOIMENTO 1.webp" alt="" loading="lazy" decoding="async"></article><article class="depo-card" aria-hidden="true"><img src="assets/DEPOIMENTO 2.webp" alt="" loading="lazy" decoding="async"></article><article class="depo-card" aria-hidden="true"><img src="assets/DEPOIMENTO 3.webp" alt="" loading="lazy" decoding="async"></article></div></div></div>
-        <div class="cases-cta cascade d-6"><a href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer" class="cases-cta__btn">QUERO MEU TRATAMENTO PERSONALIZADO</a></div>
+        <div class="cases-cta cascade d-6"><a href="https://wa.me/5541991545744" target="_blank" rel="noopener noreferrer" class="cases-cta__btn cases-cta__btn--with-icon"><img class="whatsapp-btn-icon" src="assets/whatsapp-icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /><span>QUERO MEU TRATAMENTO PERSONALIZADO</span></a></div>
       </div>
     </section>
 
@@ -2397,8 +2492,8 @@
             melhores opções para o seu caso — com clareza, honestidade e atenção ao seu ritmo.
           </p>
 
-          <a href="https://wa.me/5541991545744" target="_blank" class="cta-final__btn cascade d-3">
-            AGENDAR PELO WHATSAPP
+          <a href="https://wa.me/5541991545744" target="_blank" class="cta-final__btn cta-final__btn--with-icon cascade d-3">
+            <img class="whatsapp-btn-icon" src="assets/whatsapp-icon.png" alt="" aria-hidden="true" loading="lazy" decoding="async" /><span>AGENDAR PELO WHATSAPP</span>
           </a>
         </div>
       </div>
